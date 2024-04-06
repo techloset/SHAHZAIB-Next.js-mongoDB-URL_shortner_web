@@ -1,7 +1,8 @@
 import Image from "next/image";
 import bgimg from "../../../public/accets/images/Register.svg";
-import img1 from "../../../public/accets/images/Frame 36.svg";
+import img1 from "../../../public/accets/images/Linkly.svg";
 import img2 from "../../../public/accets/images/Property 1=Default.svg";
+import Link from "next/link";
 
 export default function Register() {
   return (
@@ -11,7 +12,7 @@ export default function Register() {
         backgroundImage: `url(${bgimg.src})`,
       }}
     >
-      <div className="pt-3">
+      <div className="pt-6 flex justify-center">
         <Image src={img1} alt="Linkly" />
       </div>
       <div className="w-100% h-[686px] flex  flex-col items-center mt-32">
@@ -46,10 +47,13 @@ export default function Register() {
           </button>
         </div>
       </div>
+
       <div className="flex justify-self-end   justify-center mt-40">
         <div className="w-[205px] h-[10px] text-white flex ">
-          <span className="text-blue-700 underline">Sign In</span> if already
-          registered
+          <Link href={"/login"} className="text-blue-700 underline">
+            Sign In
+          </Link>{" "}
+          if already registered
         </div>
       </div>
     </div>
