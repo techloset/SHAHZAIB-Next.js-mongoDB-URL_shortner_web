@@ -14,9 +14,11 @@ export default function Add() {
   return (
     <div
       className="bg-cover bg-center h-screen w-100%"
-      style={{
-        backgroundImage: `url(${bgimg.src})`,
-      }}
+      style={
+        {
+          // backgroundImage: `url(${bgimg.src})`,
+        }
+      }
     >
       <div className="h-44 bg-blue-950">
         <div className="flex pt-8 justify-around ">
