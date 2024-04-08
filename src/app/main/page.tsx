@@ -14,11 +14,9 @@ export default function Add() {
   return (
     <div
       className="bg-cover bg-center h-screen w-100%"
-      style={
-        {
-          // backgroundImage: `url(${bgimg.src})`,
-        }
-      }
+      style={{
+        backgroundImage: `url(${bgimg.src})`,
+      }}
     >
       <div className="h-44 bg-blue-950">
         <div className="flex pt-8 justify-around ">
@@ -61,8 +59,8 @@ export default function Add() {
         </div>
       </div>
 
-      <div className="flex h-[70px] bg-slate-900 ">
-        <div className="flex justify-center">
+      <div className="flex h-[70px] bg-slate-900  flex justify-center">
+        <div className="flex">
           <div className="flex">
             <div className="flex mr-16">
               <Image src={A} alt="" className="" />
@@ -81,7 +79,7 @@ export default function Add() {
       </div>
 
       {/* dss */}
-      {/* <div className="w-[1421px] bg-black ">
+      {/* <div className="w-[1421px] bg-black flex justify-center text-white">
         <table>
           <tr>
             <th>Short Link</th>
