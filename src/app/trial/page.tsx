@@ -32,7 +32,7 @@ export default function Add() {
                 />
               </div>
               <div className="h-[60px] w-[178px] rounded-full bg-blue-700 ">
-                <p className="text-white flex justify-center mt-4">
+                <p className="text-white flex justify-center mt-4 cursor-pointer">
                   Register Now
                 </p>
               </div>
@@ -53,9 +53,9 @@ export default function Add() {
               <input
                 type="text"
                 placeholder="                Enter the link here"
-                className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 "
+                className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 text-white"
               />
-              <button className="w-[178px] h-[60px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[480px] mt-2 absolute">
+              <button className="w-[178px] h-[60px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[480px] mt-2 absolute cursor-pointer">
                 Shorten Now!
               </button>
             </div>

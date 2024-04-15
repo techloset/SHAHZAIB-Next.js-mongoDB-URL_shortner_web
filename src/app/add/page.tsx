@@ -50,7 +50,7 @@ export default function Add() {
             <input
               type="text"
               placeholder="                  Enter the link to shorten here"
-              className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 "
+              className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white "
             />
           </div>
           <div className="flex flex-row relative">
@@ -60,14 +60,14 @@ export default function Add() {
             <input
               type="text"
               placeholder="                Enter custom slug"
-              className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10"
+              className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white"
             />
-            <button className="w-[268px] h-[68px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[827px] mt-11 absolute">
+            <button className="w-[268px] h-[68px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[827px] mt-11 absolute cursor-pointer">
               Auto Generate
             </button>
           </div>
 
-          <button className="w-[268px] h-[60px] rounded-[48px]  border-[1px] bg-blue-700 text-white ml-[400px] mt-10">
+          <button className="w-[268px] h-[60px] rounded-[48px]  border-[1px] bg-blue-700 text-white ml-[400px] mt-10 cursor-pointer">
             Shorten Now!
           </button>
         </div>
