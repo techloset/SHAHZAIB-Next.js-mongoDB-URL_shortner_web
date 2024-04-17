@@ -7,13 +7,21 @@ import arro from "../../../public/accets/images/arrow-right.svg";
 import group from "../../../public/accets/images/Group 12.svg";
 import A from "../../../public/accets/images/icons8-clock.svg";
 import B from "../../../public/accets/images/chart-simple.svg";
+import filImg from "../../../public/accets/images/filter.svg";
+import del from "../../../public/accets/images/arrow-1.svg";
+import edit from "../../../public/accets/images/arrow.svg";
+import QR from "../../../public/accets/images/QR.svg";
 import C from "../../../public/accets/images/cog.svg";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../../libs/AuthOptions";
 
-export default function Add() {
+export default async function Add() {
+  const session = await getServerSession(authOptions);
+
   return (
     <div
-      className="bg-cover bg-center h-screen w-100%"
+      className="bg-cover bg-center h-100% w-100%"
       style={{
         backgroundImage: `url(${bgimg.src})`,
       }}
@@ -28,16 +36,16 @@ export default function Add() {
             <input
               type="text"
               placeholder="                Enter custom slug"
-              className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 text-white "
+              className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 text-white  text-[30px] px-5"
             />
             <button className="w-[268px] h-[68px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[827px] mt-1 absolute cursor-pointer">
-              Auto Generate
+              Shorten Now!
             </button>
           </div>
           <div className="flex w-[150px] h-[60px] bg-slate-600 rounded-3xl">
             <div className="text-white ml-5 mt-2">
               <p> Welcome</p>
-              <p> SHAHZAIB</p>
+              <p>{session?.user?.name}</p>
             </div>
             <Image
               src={bell}
@@ -59,7 +67,7 @@ export default function Add() {
         </div>
       </div>
 
-      <div className="flex h-[70px] bg-slate-900  flex justify-center">
+      <div className="flex h-[70px] bg-slate-900 justify-center">
         <div className="flex">
           <div className="flex">
             <div className="flex mr-16">
@@ -79,28 +87,55 @@ export default function Add() {
       </div>
 
       {/* dss */}
-      {/* <div className="w-[1421px] bg-black flex justify-center text-white">
-        <table>
-          <tr>
-            <th>Short Link</th>
-            <th>Original Link</th>
-            <th>QR Code</th>
-            <th>Clicks</th>
-            <th>Status</th>
-            <th>Date</th>
-            <th>Action</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-          </tr>
-        </table>
-      </div> */}
+      <div className="flex justify-center mt-10">
+        <div className="w-[1421px] h-[44px]  flex justify-between">
+          <div className="text-white">History</div>
+          <div className="flex w-[114px] h-[44px] border rounded-full bg-slate-400 justify-center items-center ">
+            <Image
+              src={filImg}
+              alt="filter"
+              className="w-[15px] h-[28px] mr-2 "
+            />
+            <div className="text-white">Filter</div>
+          </div>
+        </div>
+      </div>
+      {/* dss */}
+      <div className="flex justify-center mt-5">
+        <div className="  bg-black w-[1421px] h-[800px] ">
+          <table className="text-white w-[1421px]">
+            <tr className="">
+              <th className="text-center">Short Link</th>
+              <th className="text-center">Original Link</th>
+              <th className="text-center">QR Code</th>
+              <th className="text-center">Clicks</th>
+              <th className="text-center">Status</th>
+              <th className="text-center">Date</th>
+              <th className="text-center">Action</th>
+            </tr>
+            <tr>
+              <td className="text-center">wertyuhgfdsdfgh</td>
+              <td className="text-center">qwertyuisdfghjxcvbwertydfgh</td>
+              <td className="text-center">
+                <Image src={QR} alt="QR" className="h-[36px] w-[36px] ml-10 " />
+              </td>
+              <td className="text-center">720</td>
+              <td className="text-center">Active</td>
+              <td className="text-center">Apr-16-2024</td>
+              <td className="text-center">
+                <div className="flex">
+                  <div className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ">
+                    <Image src={edit} alt="edit" className="" />
+                  </div>
+                  <div className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ml-2">
+                    <Image src={del} alt="delete" className="" />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
