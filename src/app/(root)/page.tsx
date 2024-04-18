@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "../../../libs/AuthOptions";
-import LogoutBtn from "../../../components/LogoutBtn";
+import LogoutBtn from "../../../[components]/LogoutBtn";
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);
@@ -14,4 +14,4 @@ export default async function HomePage() {
       <LogoutBtn />
     </main>
   );
-} 
+}

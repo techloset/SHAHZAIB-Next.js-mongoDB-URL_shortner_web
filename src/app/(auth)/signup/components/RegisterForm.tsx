@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Input from "../../../../../components/Input";
+import Input from "../../../../../[components]/Input";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { signIn, signOut } from "next-auth/react";
@@ -14,7 +14,7 @@ export default function RegisterForm() {
     });
   }, []);
 
-  const[name, setName] = useState("")
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

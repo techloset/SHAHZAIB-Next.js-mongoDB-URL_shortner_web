@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Input from "../../../../../components/Input";
+import Input from "../../../../../[components]/Input";
 import toast from "react-hot-toast";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import Button from "../../../../../[components]/Button";
 
 export default function LoginForm() {
   useEffect(() => {
@@ -55,14 +56,17 @@ export default function LoginForm() {
         className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
       />
       <Link href={"/forget"}>
-        <div className="text-blue-700 pt-5 flex justify-end text-3xl ">Forget Password ?</div>
+        <div className="text-blue-700 pt-5 flex justify-end text-3xl ">
+          Forget Password ?
+        </div>
       </Link>
-      <button
+      {/* <button
         onClick={handleLogin}
         className="w-[268px] h-[48px] rounded-[48px]  border-[1px] bg-blue-700 text-white ml-[200px] mt-10 cursor-pointer"
       >
         Login
-      </button>
+      </button> */}
+      <Button name="Login" onClick={handleLogin} />
     </div>
   );
 }
