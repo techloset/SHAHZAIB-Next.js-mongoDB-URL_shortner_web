@@ -5,8 +5,11 @@ import kink from "../../../public/accets/images/link.svg";
 import bell from "../../../public/accets/images/chevron-down.svg";
 import arro from "../../../public/accets/images/arrow-right.svg";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../../libs/AuthOptions";
 
-export default function Add() {
+export default async function Add() {
+  const session = await getServerSession(authOptions)
   return (
     <div
       className="bg-cover bg-center h-screen w-100%"
@@ -22,7 +25,7 @@ export default function Add() {
               <div className="flex w-[150px] h-[60px] bg-slate-600 rounded-3xl mr-4">
                 <div className="text-white ml-5 mt-2">
                   <p> Welcome</p>
-                  <p> SHAHZAIB</p>
+                  <p>{session?.user?.name}</p>
                 </div>
                 <Image
                   src={bell}

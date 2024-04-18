@@ -51,7 +51,7 @@ export default function Register() {
 
       <div className="flex justify-self-end   justify-center mt-40">
         <div className="w-[205px] h-[10px] text-white flex ">
-          <Link href={"/login"} className="text-blue-700 underline">
+          <Link href={"/signin"} className="text-blue-700 underline">
             Sign In
           </Link>{" "}
           if already registered

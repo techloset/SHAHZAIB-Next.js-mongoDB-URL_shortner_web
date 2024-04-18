@@ -22,10 +22,11 @@ export default function login() {
           Linkly is an efficient and easy-to-use URL shortening service that
           streamlines your online experience.
         </p>
-      <LoginForm />
+        <LoginForm />
       </div>
+     
       <div className="flex justify-self-end   justify-center mt-40">
-        <div className="w-[230  px] h-[10px] text-white flex ">
+        <div className="w-[230px] h-[10px] text-white flex ">
           <Link href={"/signup"} className="text-blue-700 underline">
             Register
           </Link>

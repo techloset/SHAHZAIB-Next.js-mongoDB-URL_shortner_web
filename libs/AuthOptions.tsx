@@ -4,6 +4,7 @@ import prismadb from "../libs/prismadb";
 import bcrypt from "bcrypt";
 
 export const authOptions: AuthOptions = {
+  pages: {signIn: "/signin"},
   providers: [
     Credentials({
       name: "credentials",

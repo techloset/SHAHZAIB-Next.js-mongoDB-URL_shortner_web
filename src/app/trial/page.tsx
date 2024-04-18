@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import bgimg from "../../../public/accets/images/Register.svg";
 import img1 from "../../../public/accets/images/Linkly.svg";
 import img2 from "../../../public/accets/images/Property 1=Default.svg";
@@ -7,7 +8,10 @@ import group from "../../../public/accets/images/Group 12.svg";
 import short from "../../../public/accets/images/Shorten Your Loooong Links _).svg";
 import circle from "../../../public/accets/images/Property 1=Primary Icon Only.svg";
 import Qcircle from "../../../public/accets/images/question-circle.svg";
+import QR from "../../../public/accets/images/QR.svg";
+
 import kink from "../../../public/accets/images/link.svg";
+
 import Link from "next/link";
 
 export default function Add() {
@@ -71,26 +75,49 @@ export default function Add() {
                 alt="crcle"
                 className="ml-[576px] h-[110px] w-[115px] absolute cursor-pointer -mt-[7px] sm:hidden"
               />
-              <button className="hidden  md:block w-[178px] h-[60px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[480px] mt-2 absolute cursor-pointer">
+              <button className="hidden  md:block w-[178px] h-[65px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[480px] mt-2 absolute cursor-pointer">
                 Shorten Now!
               </button>
             </div>
           </div>
-          <div className="flex mt-8 justify-center  ">
+          <div className="flex mt-8 justify-center ">
             <Image src={group} alt="" className="" />
             <p className="text-white mt-1">Auto Paste to Clipboard </p>
           </div>
           <p className="text-white flex justify-center mt-5">
             You can create <span className="text-red-700 ml-1 mr-1"> 05 </span>{" "}
             more links. Register Now to enjoy Unlimited usage
-            <Image src={Qcircle} alt="" className="ml-3 " />
+            <Image src={Qcircle} alt="circle" className="ml-3 " />
           </p>
         </div>
       </div>
-      <div>ghjkl</div>
+      <div className="flex justify-center mt-5">
+        <div className="w-[1421px] h-[500px] ">
+          <table className="text-white w-[1421px]">
+            <tr className=" bg-black w-[1421px] h-[63px] ">
+              <th className="text-center">ShortLink</th>
+              <th className="text-center">OriginalLink</th>
+              <th className="text-center">QR Code</th>
+              <th className="text-center">Clicks</th>
+              <th className="text-center">Status</th>
+              <th className="text-center">Date</th>
+            </tr>
+            <tr>
+              <td className="text-center py-5">qwertyu</td>
+              <td className="text-center">sdfghjwertyuwertywert</td>
+              <td className="text-center">
+                <Image src={QR} alt="qr" />
+              </td>
+              <td className="text-center">1234</td>
+              <td className="text-center">Inactive</td>
+              <td className="text-center">Apr-17-2024</td>
+            </tr>
+          </table>
+        </div>
+      </div>
       <div className="flex justify-center ">
         <div className="w-[230  px] h-[10px] text-white flex justify-end">
-          <Link href={"/register"} className="text-blue-700 underline">
+          <Link href={"/signup"} className="text-blue-700 underline">
             Register Now
           </Link>
           to enjoy Ulimited History
