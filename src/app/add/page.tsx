@@ -7,6 +7,7 @@ import arro from "../../../public/accets/images/arrow-right.svg";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../libs/AuthOptions";
+import Button from "../../../[components]/Button";
 
 export default async function Add() {
   const session = await getServerSession(authOptions)
@@ -70,9 +71,10 @@ export default async function Add() {
             </button>
           </div>
 
-          <button className="w-[268px] h-[60px] rounded-[48px]  border-[1px] bg-blue-700 text-white ml-[400px] mt-10 cursor-pointer">
-            Shorten Now!
-          </button>
+          
+          <Button
+            name="Shorten Now!"
+          />
         </div>
       </div>
     </div>

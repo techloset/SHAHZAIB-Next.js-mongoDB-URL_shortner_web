@@ -14,8 +14,8 @@ export const authOptions: AuthOptions = {
         password: { label: "password", type: "password" },
         confirmPassword: { label: "password", type: "password" },
       },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+      async authorize(credentials : any ) {
+        if (!credentials.email || !credentials.password) {
           throw new Error("Missing credentials");
         }
 
@@ -27,12 +27,15 @@ export const authOptions: AuthOptions = {
         if (!user || !user.id || !user.hashedPassword) {
           throw new Error("invalid credentials");
         }
-        const currentHashedpassword = await bcrypt.hash(
-          credentials.password,
-          12
-        );
-        bcrypt.compare(currentHashedpassword, user.hashedPassword);
-        return user;
+        // const currentHashedpassword = await bcrypt.hash(
+        //   credentials.password,
+        //   12
+        // );
+       const compairpassword = await bcrypt.compare(credentials.password, user.hashedPassword);
+       if(compairpassword){
+        
+         return user;
+       }
       },
     }),
   ],

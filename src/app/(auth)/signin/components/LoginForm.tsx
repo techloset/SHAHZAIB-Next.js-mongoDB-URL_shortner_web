@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import Button from "../../../../../[components]/Button";
+import Loader from "../../../../../[components]/Loader";
 
 export default function LoginForm() {
   useEffect(() => {
@@ -37,36 +38,34 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex flex-col">
-      <input
-        type="email"
-        placeholder="   Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        disabled={loading}
-        className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
-      />
-
-      <input
-        type="password"
-        placeholder="   Passward"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        disabled={loading}
-        className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
-      />
-      <Link href={"/forget"}>
-        <div className="text-blue-700 pt-5 flex justify-end text-3xl ">
-          Forget Password ?
+    <>
+      {!loading ? (
+        <div className="flex flex-col">
+          <Loader/>
+          <Input
+            type="email"
+            placeholder="   Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Link href={"/forget"}>
+            <div className="text-blue-700 pt-5 flex justify-end text-3xl ">
+              Forget Password ?
+            </div>
+          </Link>
+          <Button name="Login" onClick={handleLogin} />
         </div>
-      </Link>
-      {/* <button
-        onClick={handleLogin}
-        className="w-[268px] h-[48px] rounded-[48px]  border-[1px] bg-blue-700 text-white ml-[200px] mt-10 cursor-pointer"
-      >
-        Login
-      </button> */}
-      <Button name="Login" onClick={handleLogin} />
-    </div>
+      ) : (
+        <>
+          <Loader />
+        </>
+      )}
+    </>
   );
 }

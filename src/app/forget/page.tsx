@@ -4,6 +4,7 @@ import img1 from "../../../public/accets/images/Linkly.svg";
 import img2 from "../../../public/accets/images/Property 1=Default.svg";
 import Link from "next/link";
 import Button from "../../../[components]/Button";
+import Input from "../../../[components]/Input";
 
 export default function Forget() {
   return (
@@ -23,12 +24,13 @@ export default function Forget() {
           streamlines your online experience.
         </p>
         <div className="flex flex-col">
-          <input
+          <Input
             type="email"
             placeholder="   Email"
-            className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5 "
+            // value={email}
+            // onChange={(e) => setEmail(e.target.value)}
           />
-          <Button name="Forget"/>
+          <Button name="Forget" />
         </div>
       </div>
     </div>

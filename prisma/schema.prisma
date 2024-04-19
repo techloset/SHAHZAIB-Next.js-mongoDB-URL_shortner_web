@@ -32,3 +32,12 @@ model url {
   date DateTime @default(now())
 }
 
+
+model Urll {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  longUrl     String
+  shortId     String    @unique
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+

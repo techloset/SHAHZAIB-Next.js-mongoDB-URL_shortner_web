@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Button from "../../../../../[components]/Button";
 
 export default function RegisterForm() {
   useEffect(() => {
@@ -45,44 +46,31 @@ export default function RegisterForm() {
 
   return (
     <div className="flex flex-col">
-      <input
+      <Input
         type="email"
         placeholder="   Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        disabled={loading}
-        className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white text-[30px] px-5"
       />
-      <input
+      <Input
         type="text"
         placeholder="   Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        disabled={loading}
-        className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white text-[30px] px-5"
       />
-      <input
+      <Input
         type="password"
         placeholder="   Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        disabled={loading}
-        className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white text-[30px] px-5"
       />
-      <input
+      <Input
         type="password"
         placeholder="   Confirm Passward"
-        value={confirmPassword}
+        value={password}
         onChange={(e) => setConfirmPassword(e.target.value)}
-        disabled={loading}
-        className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white text-[30px] px-5"
       />
-      <button
-        onClick={handleRegister}
-        className="w-[268px] h-[48px] rounded-[48px]  border-[1px] bg-blue-700 text-white ml-[200px] mt-10 cursor-pointer"
-      >
-        Register
-      </button>
+      <Button name="Register" onClick={handleRegister} />
     </div>
   );
 }

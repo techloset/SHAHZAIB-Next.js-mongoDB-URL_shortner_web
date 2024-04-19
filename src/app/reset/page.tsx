@@ -4,6 +4,7 @@ import img1 from "../../../public/accets/images/Linkly.svg";
 import img2 from "../../../public/accets/images/Property 1=Default.svg";
 import Link from "next/link";
 import Button from "../../../[components]/Button";
+import Input from "../../../[components]/Input";
 
 export default function Reset() {
   return (
@@ -23,24 +24,24 @@ export default function Reset() {
           streamlines your online experience.
         </p>
         <div className="flex flex-col">
-          <input
+          <Input
             type="password"
             placeholder="   Current Password"
-            className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
           />
-          <input
+          <Input
             type="password"
             placeholder="   New Password"
-            className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
+            // value={email}
+            // onChange={(e) => setNewPassword(e.target.value)}
           />
-          <input
+          <Input
             type="password"
             placeholder="   Confirm New Passward"
-            className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
+            // value={email}
+            // onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          {/* <button className="w-[268px] h-[48px] rounded-[48px]  border-[1px] bg-blue-700 text-white ml-[200px] mt-10 cursor-pointer">
-            Change Passward
-          </button> */}
           <Button name="Reset" />
         </div>
       </div>
