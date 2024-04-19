@@ -1,4 +1,3 @@
-// // utils/generateRandomId.ts
 
 // export function GenerateRandomId(length: number = 10): string {
 //   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

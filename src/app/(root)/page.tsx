@@ -1,17 +1,149 @@
-import { getServerSession } from "next-auth";
-import React from "react";
-import { authOptions } from "../../../libs/AuthOptions";
-import LogoutBtn from "../../../[components]/LogoutBtn";
+// import { getServerSession } from "next-auth";
+// import React from "react";
+// import { authOptions } from "../../../libs/AuthOptions";
+// import LogoutBtn from "../../../[components]/LogoutBtn";
 
-export default async function HomePage() {
-  const session = await getServerSession(authOptions);
+// export default async function HomePage() {
+//   const session = await getServerSession(authOptions);
+//   return (
+//     <main className="justify-center items-center">
+//       <div className="text-lime-500 text-center text-2xl">User Profile</div>
+
+//       <div>Protected Dashboard, hello Name : {session?.user?.name} </div>
+//       <div>Protected Dashboard, hello Email : {session?.user?.email} </div>
+//       <LogoutBtn />
+//     </main>
+//   );
+// }
+import Image from "next/image";
+
+import bgimg from "../../../public/accets/images/Register.svg";
+import img1 from "../../../public/accets/images/Linkly.svg";
+import img2 from "../../../public/accets/images/Property 1=Default.svg";
+import sigin from "../../../public/accets/images/sign-in.svg";
+import group from "../../../public/accets/images/Group 12.svg";
+import short from "../../../public/accets/images/Shorten Your Loooong Links _).svg";
+import circle from "../../../public/accets/images/Property 1=Primary Icon Only.svg";
+import Qcircle from "../../../public/accets/images/question-circle.svg";
+import QR from "../../../public/accets/images/QR.svg";
+
+import kink from "../../../public/accets/images/link.svg";
+
+import Link from "next/link";
+
+export default function Add() {
   return (
-    <main className="justify-center items-center">
-      <div className="text-lime-500 text-center text-2xl">User Profile</div>
-
-      <div>Protected Dashboard, hello Name : {session?.user?.name} </div>
-      <div>Protected Dashboard, hello Email : {session?.user?.email} </div>
-      <LogoutBtn />
-    </main>
+    <div
+      className="bg-cover bg-center h-screen w-100%"
+      style={{
+        backgroundImage: `url(${bgimg.src})`,
+      }}
+    >
+      <div className="pt-12">
+        <div>
+          <div className="flex justify-between">
+            <Image src={img1} alt="Linkly" className="flex ml-12" />
+            <div className="mr-12 flex">
+              <div className="flex w-[150px] h-[60px] bg-slate-600 rounded-3xl mr-4 cursor-pointer">
+                <Link href={"/signin"}>
+                  <div className="text-white ml-8 mt-5 h-[18px] w-[43px]  ">
+                    <p> Login</p>
+                  </div>
+                </Link>
+                <Image
+                  src={sigin}
+                  alt="signin-btn"
+                  className="w-[20px] h-[28px] mt-4 ml-4"
+                />
+              </div>
+              <div className="h-[60px] w-[178px] rounded-full bg-blue-700 hidden md:block">
+                <Link href={"/signup"}>
+                  <p className="text-white flex justify-center mt-4 cursor-pointer">
+                    Register Now
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="w-100%  flex  flex-col items-center mt-32">
+            <Image
+              src={short}
+              alt="shortner"
+              className="w-[330px] h-[82]  sm:hidden"
+            />
+            <Image
+              src={img2}
+              alt="123"
+              className="w-[566px] h-[81px] hidden md:block"
+            />
+            <p className="h-[47px] w-[634px] text-white text-center">
+              Linkly is an efficient and easy-to-use URL shortening service that
+              streamlines your online experience.
+            </p>
+          </div>
+          <div className="flex justify-center mt-10">
+            <div className="flex flex-row relative">
+              <span className="h-[25px] w-[25] absolute ml-10 mt-8 ">
+                <Image src={kink} alt="Link" />
+              </span>
+              <input
+                type="text"
+                placeholder="                Enter the link here"
+                className="w-[660px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 text-white  text-[30px] px-5"
+              />
+              <Image
+                src={circle}
+                alt="crcle"
+                className="ml-[576px] h-[110px] w-[115px] absolute cursor-pointer -mt-[7px] sm:hidden"
+              />
+              <button className="hidden  md:block w-[178px] h-[65px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[480px] mt-2 absolute cursor-pointer">
+                Shorten Now!
+              </button>
+            </div>
+          </div>
+          <div className="flex mt-8 justify-center ">
+            <Image src={group} alt="" className="" />
+            <p className="text-white mt-1">Auto Paste to Clipboard </p>
+          </div>
+          <p className="text-white flex justify-center mt-5">
+            You can create <span className="text-red-700 ml-1 mr-1"> 05 </span>{" "}
+            more links. Register Now to enjoy Unlimited usage
+            <Image src={Qcircle} alt="circle" className="ml-3 " />
+          </p>
+        </div>
+      </div>
+      <div className="flex justify-center mt-5">
+        <div className="w-[1421px] h-[500px] ">
+          <table className="text-white w-[1421px]">
+            <tr className=" bg-black w-[1421px] h-[63px] ">
+              <th className="text-center">ShortLink</th>
+              <th className="text-center">OriginalLink</th>
+              <th className="text-center">QR Code</th>
+              <th className="text-center">Clicks</th>
+              <th className="text-center">Status</th>
+              <th className="text-center">Date</th>
+            </tr>
+            <tr>
+              <td className="text-center py-5">qwertyu</td>
+              <td className="text-center">sdfghjwertyuwertywert</td>
+              <td className="text-center">
+                <Image src={QR} alt="qr" />
+              </td>
+              <td className="text-center">1234</td>
+              <td className="text-center">Inactive</td>
+              <td className="text-center">Apr-17-2024</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div className="flex justify-center ">
+        <div className="w-[230  px] h-[10px] text-white flex justify-end">
+          <Link href={"/main"} className="text-blue-700 underline">
+            Detail Now
+          </Link>
+          to enjoy Ulimited History
+        </div>
+      </div>
+    </div>
   );
 }
