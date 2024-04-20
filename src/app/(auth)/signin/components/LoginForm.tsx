@@ -41,7 +41,7 @@ export default function LoginForm() {
     <>
       {!loading ? (
         <div className="flex flex-col">
-          <Loader/>
+          <Loader />
           <Input
             type="email"
             placeholder="   Email"
@@ -62,9 +62,9 @@ export default function LoginForm() {
           <Button name="Login" onClick={handleLogin} />
         </div>
       ) : (
-        <>
+        <div className="h-screen flex justify-center items-center">
           <Loader />
-        </>
+        </div>
       )}
     </>
   );

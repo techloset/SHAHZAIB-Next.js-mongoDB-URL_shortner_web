@@ -42,7 +42,7 @@ export default function Reset() {
             // value={email}
             // onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <Button name="Reset" />
+            <Button name="Reset" />
         </div>
       </div>
     </div>

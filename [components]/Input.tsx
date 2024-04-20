@@ -3,7 +3,6 @@ import React, { ChangeEvent } from "react";
 interface InputProps {
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  disabled?: boolean;
   type?: string;
   placeholder: string;
 }
