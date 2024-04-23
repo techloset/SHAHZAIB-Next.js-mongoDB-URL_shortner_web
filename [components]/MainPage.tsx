@@ -6,19 +6,38 @@ import del from "../public/accets/images/arrow-1.svg";
 import edit from "../public/accets/images/arrow.svg";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { fetchUser } from "@/app/redux/slices/userSlice";
+
+interface UserData {
+  id: string | null;
+  longUrl: string | null;
+  shortId: string | null;
+  clickCount: number | null;
+  createdAt: string | null;
+  updatedAt: string | null;
+  date: string | null;
+}
 
 export default function MainPage() {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.fetchUser.userData);
 
+  const [data, setData] = useState<UserData[]>([]); 
+
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);
 
-  console.log("state", userData);
+  useEffect(() => {
+    if (userData !== null) {
+      console.log("state", userData);
+      setData(userData);
+    }
+  }, [userData]);
+
+  console.log("Data", data);
   return (
     <div className="  bg-black w-[1421px] h-[800px] ">
       <table className="text-white w-[1421px]">
@@ -31,42 +50,46 @@ export default function MainPage() {
           <th className="text-center">Date</th>
           <th className="text-center">Action</th>
         </tr>
-        <tr>
-          <td className="text-center py-5">
-            <div className="flex justify-center items-center">
-              <div className="flex">
-                <div>qwertysdfgh</div>
-                <Image src={Copy} alt="copy" className="ml-3" />
-              </div>
-            </div>
-          </td>
-          <td className="text-center py-5">qwertyuisdfghjxcvbwertydfgh</td>
-          <td className="text-center py-5 flex justify-center items-center">
-            <Image src={QR} alt="QR" className="h-[36px] w-[36px] " />
-          </td>
-          <td className="text-center">720</td>
-          <td className="text-center">
-            <div className="flex justify-center items-center">
-              <div className=" text-green-600">Active</div>
-              <div>
-                <Image src={lnk} alt="" className="ml-3" />
-              </div>
-            </div>
-          </td>
-          <td className="text-center">Apr-16-2024</td>
-          <td className="text-center">
-            <div className="flex items-center justify-center">
-              <Link href={"/add"}>
-                <div className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ">
-                  <Image src={edit} alt="edit" className="" />
+        {data?.map((item, i) => {
+          return (
+            <tr key={i}>
+              <td className="text-center py-5">
+                <div className="flex justify-center items-center">
+                  <div className="flex">
+                    <div>{item.shortId}</div>
+                    <Image src={Copy} alt="copy" className="ml-3" />
+                  </div>
                 </div>
-              </Link>
-              <div className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ml-2">
-                <Image src={del} alt="delete" className="" />
-              </div>
-            </div>
-          </td>
-        </tr>
+              </td>
+              <td className="text-center py-5 hover:text-blue-700">{item.longUrl?.slice(0,30)}</td>
+              <td className="text-center py-5 flex justify-center items-center">
+                <Image src={QR} alt="QR" className="h-[36px] w-[36px] " />
+              </td>
+              <td className="text-center">{item.clickCount}</td>
+              <td className="text-center">
+                <div className="flex justify-center items-center">
+                  <div className=" text-green-600">Active</div>
+                  <div>
+                    <Image src={lnk} alt="" className="ml-3" />
+                  </div>
+                </div>
+              </td>
+              <td className="text-center">{item.createdAt?.slice(0,12)}</td>
+              <td className="text-center">
+                <div className="flex items-center justify-center">
+                  <Link href={"/add"}>
+                    <div className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ">
+                      <Image src={edit} alt="edit" className="" />
+                    </div>
+                  </Link>
+                  <div className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ml-2">
+                    <Image src={del} alt="delete" className="" />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
       </table>
     </div>
   );

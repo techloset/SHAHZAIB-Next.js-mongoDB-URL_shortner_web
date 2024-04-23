@@ -25,13 +25,12 @@ import group from "../../../public/accets/images/Group 12.svg";
 import short from "../../../public/accets/images/Shorten Your Loooong Links _).svg";
 import circle from "../../../public/accets/images/Property 1=Primary Icon Only.svg";
 import Qcircle from "../../../public/accets/images/question-circle.svg";
-import QR from "../../../public/accets/images/QR.svg";
-
 import kink from "../../../public/accets/images/link.svg";
-
 import Link from "next/link";
+import TrialPage from "../../../[components]/TrialPage";
 
-export default function Add() {
+export default async function Home() {
+
   return (
     <div
       className="bg-cover bg-center h-screen w-100%"
@@ -45,11 +44,9 @@ export default function Add() {
             <Image src={img1} alt="Linkly" className="flex ml-12" />
             <div className="mr-12 flex">
               <div className="flex w-[150px] h-[60px] bg-slate-600 rounded-3xl mr-4 cursor-pointer">
-                <Link href={"/signin"}>
-                  <div className="text-white ml-8 mt-5 h-[18px] w-[43px]  ">
-                    <p> Login</p>
-                  </div>
-                </Link>
+                <div className="text-white ml-8 mt-5 h-[18px] w-[43px]  ">
+                  <p> Login</p>
+                </div>
                 <Image
                   src={sigin}
                   alt="signin-btn"
@@ -57,11 +54,9 @@ export default function Add() {
                 />
               </div>
               <div className="h-[60px] w-[178px] rounded-full bg-blue-700 hidden md:block">
-                <Link href={"/signup"}>
-                  <p className="text-white flex justify-center mt-4 cursor-pointer">
-                    Register Now
-                  </p>
-                </Link>
+                <p className="text-white flex justify-center mt-4 cursor-pointer">
+                  Register Now
+                </p>
               </div>
             </div>
           </div>
@@ -113,33 +108,12 @@ export default function Add() {
         </div>
       </div>
       <div className="flex justify-center mt-5">
-        <div className="w-[1421px] h-[500px] ">
-          <table className="text-white w-[1421px]">
-            <tr className=" bg-black w-[1421px] h-[63px] ">
-              <th className="text-center">ShortLink</th>
-              <th className="text-center">OriginalLink</th>
-              <th className="text-center">QR Code</th>
-              <th className="text-center">Clicks</th>
-              <th className="text-center">Status</th>
-              <th className="text-center">Date</th>
-            </tr>
-            <tr>
-              <td className="text-center py-5">qwertyu</td>
-              <td className="text-center">sdfghjwertyuwertywert</td>
-              <td className="text-center">
-                <Image src={QR} alt="qr" />
-              </td>
-              <td className="text-center">1234</td>
-              <td className="text-center">Inactive</td>
-              <td className="text-center">Apr-17-2024</td>
-            </tr>
-          </table>
-        </div>
+        <TrialPage />
       </div>
       <div className="flex justify-center ">
         <div className="w-[230  px] h-[10px] text-white flex justify-end">
-          <Link href={"/main"} className="text-blue-700 underline">
-            Detail Now
+          <Link href={"/signup"} className="text-blue-700 underline">
+            Register Now
           </Link>
           to enjoy Ulimited History
         </div>

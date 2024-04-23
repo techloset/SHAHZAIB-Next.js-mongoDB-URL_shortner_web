@@ -99,7 +99,7 @@ export default async function Add() {
       </div>
       {/* dss */}
       <div className="flex justify-center mt-5">
-<MainPage/>
+      <MainPage/>
       </div>
     </div>
   );

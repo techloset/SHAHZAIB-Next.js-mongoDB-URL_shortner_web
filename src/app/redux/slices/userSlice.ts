@@ -3,7 +3,7 @@ import axios from "axios";
 
 interface UserData {
     id: string | null;
-    longUrl: string | null; // Yahan typo sahi kar diya gaya hai
+    longUrl: string | null;
     shortId: string | null;
     clickCount: number | null;
     createdAt: string | null;
@@ -12,7 +12,7 @@ interface UserData {
 }
 
 export interface UserState {
-    userData: UserData[] | null; // UserData ke ek array ka assumption kiya gaya hai
+    userData: UserData[] | null;
     loading: boolean;
     error: string | null;
 }
@@ -28,7 +28,7 @@ export const fetchUser = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get("/api/urlshortner");
-            const result: UserData[] = response.data; // UserData ke ek array ka assumption kiya gaya hai
+            const result: UserData[] = response.data; 
             return result;
         } catch (error) {
             throw error;
