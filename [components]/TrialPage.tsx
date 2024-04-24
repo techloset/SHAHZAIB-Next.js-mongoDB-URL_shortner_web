@@ -61,7 +61,7 @@ export default function TrialPage() {
                   <Image src={QR} alt="qr" />
                 </td>
                 <td className="text-center">{item.clickCount}</td>
-                <td className="text-center" >Inactive</td>
+                <td className="text-center text-green-500" >Inactive</td>
                 <td className="text-center">{item.createdAt?.slice(0, 12)}</td>
               </tr>
             );
