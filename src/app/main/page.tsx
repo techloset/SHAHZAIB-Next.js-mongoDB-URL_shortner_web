@@ -82,8 +82,6 @@ export default async function Add() {
           </div>
         </div>
       </div>
-
-      {/* dss */}
       <div className="flex justify-center mt-10">
         <div className="w-[1421px] h-[44px]  flex justify-between">
           <div className="text-white">History</div>
@@ -97,7 +95,6 @@ export default async function Add() {
           </div>
         </div>
       </div>
-      {/* dss */}
       <div className="flex justify-center mt-5">
       <MainPage/>
       </div>

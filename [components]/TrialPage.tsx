@@ -53,12 +53,12 @@ export default function TrialPage() {
           <th className="text-center">Date</th>
         </tr>
         {data?.map((item, i) => {
-          if (i < 5) {
+          if (i < 15) {
             return (
               <tr key={i}>
                 <td className="text-center py-5">{item.shortId}</td>
                 <td className="text-center">{item.longUrl?.slice(0, 30)}</td>
-                <td className="flex justify-center items-center py-5">
+                <td className="flex justify-center items-center mt-4 ">
                   <Image src={QR} alt="qr" />
                 </td>
                 <td className="text-center">{item.clickCount}</td>

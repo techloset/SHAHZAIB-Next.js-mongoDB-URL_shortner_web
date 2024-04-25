@@ -1,6 +1,5 @@
 "use client";
 
-
 import QR from "../public/accets/images/QR.svg";
 import Copy from "../public/accets/images/copy.svg";
 import lnk from "../public/accets/images/link.svg";
@@ -11,11 +10,12 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { fetchUser } from "@/app/redux/slices/userSlice";
-// import { MongoClient } from "mongodb";
-// const MongoClient = require("mongodb").MongoClient;
 
-import axios from 'axios';
-import toast from 'react-hot-toast';
+
+import axios from "axios";
+import toast from "react-hot-toast";
+import { NextApiResponse } from "next";
+import { useRouter } from "next/navigation";
 
 interface UserData {
   id: string | null;
@@ -30,7 +30,7 @@ interface UserData {
 export default function MainPage() {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.fetchUser.userData);
-
+  const router = useRouter();
   const [data, setData] = useState<UserData[]>([]);
 
   useEffect(() => {
@@ -52,6 +52,8 @@ export default function MainPage() {
 
       if (response.status === 200) {
         console.log(response.data.message);
+        dispatch(fetchUser());
+
         toast.success(response.data.message);
       } else {
         console.error("Failed to delete URL:", response.statusText);
@@ -60,44 +62,34 @@ export default function MainPage() {
       console.error("Error deleting URL:", error);
       toast.error("Error deleting URL");
     }
-  }; 
+  };
 
-  // sdfghjkl
+  const getUrlFromShortId = async (shortId : any , res: NextApiResponse) => {
+    const filteredItem = data.find((item: any) => item.shortId === shortId);
 
-// async function redirectToLongUrl(shortId : any) {
-//   const uri = process.env.DATABASE_URL;
-//   const client = new MongoClient(uri, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   });
+    if (filteredItem) {
+      const longUrl = filteredItem.longUrl;
+      console.log("Filtered Item:", filteredItem);
+      console.log("Long URL:", longUrl);
 
-//   try {
-//     await client.connect();
-
-//     const database = client.db("");
-//     const collection = database.collection("URL-SHORTNER");
-
-//     const query = { shortId: shortId };
-//     const projection = { longUrl: 1, _id: 0 };
-
-//     const result = await collection.findOne(query, { projection });
-
-//     if (result) {
-//       return result.longUrl;
-//     } else {
-//       return "Short URL not found";
-//     }
-//   } catch (error) {
-//     console.error("Error:", error);
-//     return "An error occurred";
-//   } finally {
-//     await client.close();
-//   }
-// }
-
-
-
-  // asdfghj
+      if (longUrl) {
+        try {
+          handleUpdate(shortId);
+          window.open(longUrl, "_blank");
+          dispatch(fetchUser());
+        } catch (error) {
+          console.error("Error redirecting to long URL:", error);
+          res.status(500).json({ error: "Internal Server Error" });
+        }
+      } else {
+        console.error("No longUrl found for the provided shortId");
+        res.status(404).json({ error: "Short URL not found" });
+      }
+    } else {
+      console.error("No item found with the provided shortId");
+      res.status(404).json({ error: "Short URL not found" });
+    }
+  };
 
   const handleUpdate = async (shortId: any) => {
     try {
@@ -146,7 +138,7 @@ export default function MainPage() {
                   <div className="flex">
                     <div
                       onClick={() => {
-                        handleUpdate(item?.shortId);
+                        getUrlFromShortId(item?.shortId);
                       }}
                     >
                       {item.shortId}
