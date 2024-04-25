@@ -1,12 +1,11 @@
 "use client";
 
 import QR from "../public/accets/images/QR.svg";
-import Image from 'next/image';
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { fetchUser } from "@/app/redux/slices/userSlice";
-
-
+import { fetchUserData } from "@/app/redux/slices/authSlice";
 
 interface UserData {
   id: string | null;
@@ -21,11 +20,16 @@ interface UserData {
 export default function TrialPage() {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.fetchUser.userData);
+  // const userProfileData = useAppSelector((state) => state.fetchUserData.userData);
 
   const [data, setData] = useState<UserData[]>([]);
 
   useEffect(() => {
     dispatch(fetchUser());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchUserData());
   }, [dispatch]);
 
   useEffect(() => {
@@ -36,9 +40,6 @@ export default function TrialPage() {
   }, [userData]);
 
   console.log("Data", data);
-
-
-
 
   return (
     <div className="w-[1421px] h-[500px] ">
@@ -61,7 +62,7 @@ export default function TrialPage() {
                   <Image src={QR} alt="qr" />
                 </td>
                 <td className="text-center">{item.clickCount}</td>
-                <td className="text-center text-green-500" >Inactive</td>
+                <td className="text-center text-green-500">Inactive</td>
                 <td className="text-center">{item.createdAt?.slice(0, 12)}</td>
               </tr>
             );

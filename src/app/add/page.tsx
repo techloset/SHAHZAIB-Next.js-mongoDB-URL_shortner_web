@@ -29,7 +29,7 @@ export default async function Add() {
                 <Image
                   src={bell}
                   alt="chevron-down"
-                  className="w-[20px] h-[28px] mt-4 ml-4"
+                  className="w-[20px] h-[28px] mt- ml-4"
                 />
               </div>
               <div className="h-[60px] w-[60px] rounded-full bg-blue-700 ">
@@ -43,9 +43,7 @@ export default async function Add() {
           </div>
         </div>
       </div>
-      <div className="w-100% h-[686px] flex  flex-col items-center mt-32">
         <AddEdit/>
       </div>
-    </div>
   );
 }

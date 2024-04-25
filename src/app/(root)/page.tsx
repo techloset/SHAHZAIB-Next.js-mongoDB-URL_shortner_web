@@ -91,9 +91,13 @@ export default async function Home() {
                 alt="crcle"
                 className="ml-[576px] h-[110px] w-[115px] absolute cursor-pointer -mt-[7px] sm:hidden"
               />
-              <button className="hidden  md:block w-[178px] h-[65px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[480px] mt-2 absolute cursor-pointer">
-                Shorten Now!
-              </button>
+             
+                <button className="hidden  md:block w-[178px] h-[65px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[480px] mt-2 absolute cursor-pointer">
+                   <Link href={"/add"}>
+                  Shorten Now!
+                   </Link>
+                </button>
+          
             </div>
           </div>
           <div className="flex mt-8 justify-center ">
@@ -112,8 +116,8 @@ export default async function Home() {
       </div>
       <div className="flex justify-center ">
         <div className="w-[230  px] h-[10px] text-white flex justify-end">
-          <Link href={"/signup"} className="text-blue-700 underline">
-            Register Now
+          <Link href={"/main"} className="text-blue-700 underline">
+            main
           </Link>
           to enjoy Ulimited History
         </div>

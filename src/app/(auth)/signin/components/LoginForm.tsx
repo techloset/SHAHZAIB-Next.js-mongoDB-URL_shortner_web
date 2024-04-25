@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import Button from "../../../../../[components]/Button";
-import Loader from "../../../../../[components]/Loader";
 
 export default function LoginForm() {
   useEffect(() => {
@@ -39,9 +38,7 @@ export default function LoginForm() {
 
   return (
     <>
-      {!loading ? (
         <div className="flex flex-col">
-          <Loader />
           <Input
             type="email"
             placeholder="   Email"
@@ -61,11 +58,8 @@ export default function LoginForm() {
           </Link>
           <Button name="Login" onClick={handleLogin} />
         </div>
-      ) : (
         <div className="h-screen flex justify-center items-center">
-          <Loader />
         </div>
-      )}
     </>
   );
 }

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import prismadb from "../../../../libs/prismadb";
 import bcrypt from "bcrypt";
+import { IncomingMessage } from "http";
+import { getServerSession } from "next-auth";
 
 export async function POST(req: Request) {
   try {
@@ -8,7 +10,7 @@ export async function POST(req: Request) {
 
     const { email, name, password, confirmPassword } = body;
 
-    if (!email|| !name || !password || !confirmPassword) {
+    if (!email || !name || !password || !confirmPassword) {
       return new NextResponse("Missing data", { status: 500 });
     }
 
@@ -39,3 +41,4 @@ export async function POST(req: Request) {
     return new NextResponse(err, { status: 500 });
   }
 }
+
