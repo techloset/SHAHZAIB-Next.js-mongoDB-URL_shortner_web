@@ -1,6 +1,6 @@
 "use client";
 
-import QR from "../public/accets/images/QR.svg";
+import QR from "../../public/accets/images/QR.svg";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
@@ -44,7 +44,7 @@ export default function TrialPage() {
   return (
     <div className="w-[1421px] h-[500px] ">
       <table className="text-white w-[1421px]">
-        <tr className=" bg-black w-[1421px] h-[63px] ">
+        <tr className=" bg-red-500 border-4 border-white h-[63px] ">
           <th className="text-center">ShortLink</th>
           <th className="text-center">OriginalLink</th>
           <th className="text-center">QR Code</th>

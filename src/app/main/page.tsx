@@ -11,7 +11,7 @@ import filImg from "../../../public/accets/images/filter.svg";
 import C from "../../../public/accets/images/cog.svg";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../libs/AuthOptions";
-import MainPage from "../../../[components]/MainPage";
+import MainPage from "../../../[components]/main/MainPage";
 
 export default async function Add() {
   const session = await getServerSession(authOptions);
@@ -84,7 +84,7 @@ export default async function Add() {
       </div>
       <div className="flex justify-center mt-10">
         <div className="w-[1421px] h-[44px]  flex justify-between">
-          <div className="text-white">History</div>
+          <div className="text-white text-2xl">History</div>
           <div className="flex w-[114px] h-[44px] border rounded-full bg-slate-400 justify-center items-center ">
             <Image
               src={filImg}
@@ -95,7 +95,7 @@ export default async function Add() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-5">
+      <div className="flex justify-center py-5">
       <MainPage/>
       </div>
     </div>

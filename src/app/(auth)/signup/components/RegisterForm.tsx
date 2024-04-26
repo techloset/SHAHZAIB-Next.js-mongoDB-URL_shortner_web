@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Input from "../../../../../[components]/Input";
+import Input from "../../../../../[components]/input/Input";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Button from "../../../../../[components]/Button";
+import Button from "../../../../../[components]/button/Button";
 
 export default function RegisterForm() {
   useEffect(() => {

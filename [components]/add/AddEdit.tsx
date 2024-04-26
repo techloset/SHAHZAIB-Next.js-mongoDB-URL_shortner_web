@@ -2,11 +2,11 @@
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
-import Button from "./Button";
-import Link from "../public/accets/images/link.svg";
-import kink from "../public/accets/images/link.svg";
-import Input from "./Input";
-
+import Button from "../button/Button";
+import Link from "../../public/accets/images/link.svg";
+import kink from "../../public/accets/images/link.svg";
+import Input from "../input/Input";
+import toast from "react-hot-toast";
 
 interface ApiResponse {
   message: string;
@@ -29,12 +29,12 @@ const AddEdit: React.FC = () => {
         },
         body: JSON.stringify({ longUrl }),
       });
-
       const data: ApiResponse = await response.json();
       if (response.ok) {
         setMessage(data.message);
+        toast.success("URL Short Successfully Added");
         setLongUrl("");
-      } else {  
+      } else {
         setMessage("Failed to create URL");
       }
     } catch (error) {
@@ -139,20 +139,20 @@ export default AddEdit;
 //           className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
 //         />
 //       </div>
-    //   <div className="flex flex-row relative">
-    //     <span className="h-[25px] w-[25] absolute ml-10 mt-16 ">
-    //       <Image src={kink} alt="Link" />
-    //     </span>
-    //     <input
-    //       type="text"
-    //       placeholder="                Enter custom slug"
-    //       onChange={handleLongUrlChange}
-    //       className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
-    //     />
-    //     <button className="w-[268px] h-[68px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[827px] mt-11 absolute cursor-pointer">
-    //       Auto Generate
-    //     </button>
-    //   </div>
+//   <div className="flex flex-row relative">
+//     <span className="h-[25px] w-[25] absolute ml-10 mt-16 ">
+//       <Image src={kink} alt="Link" />
+//     </span>
+//     <input
+//       type="text"
+//       placeholder="                Enter custom slug"
+//       onChange={handleLongUrlChange}
+//       className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
+//     />
+//     <button className="w-[268px] h-[68px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[827px] mt-11 absolute cursor-pointer">
+//       Auto Generate
+//     </button>
+//   </div>
 
 //       <Button name="Shorten Now!" onClick={handleSubmit}  />
 //     </div>

@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Input from "../../../../../[components]/Input";
+import Input from "../../../../../[components]/input/Input";
 import toast from "react-hot-toast";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import Button from "../../../../../[components]/Button";
+import Button from "../../../../../[components]/button/Button";
 
 export default function LoginForm() {
   useEffect(() => {
@@ -38,28 +38,27 @@ export default function LoginForm() {
 
   return (
     <>
-        <div className="flex flex-col">
-          <Input
-            type="email"
-            placeholder="   Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Link href={"/forget"}>
-            <div className="text-blue-700 pt-5 flex justify-end text-3xl ">
-              Forget Password ?
-            </div>
-          </Link>
-          <Button name="Login" onClick={handleLogin} />
-        </div>
-        <div className="h-screen flex justify-center items-center">
-        </div>
+      <div className="flex flex-col">
+        <Input
+          type="email"
+          placeholder="   Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Link href={"/forget"}>
+          <div className="text-blue-700 pt-5 flex justify-end text-3xl ">
+            Forget Password ?
+          </div>
+        </Link>
+        <Button name="Login" onClick={handleLogin} />
+      </div>
+      <div className="h-screen flex justify-center items-center"></div>
     </>
   );
 }

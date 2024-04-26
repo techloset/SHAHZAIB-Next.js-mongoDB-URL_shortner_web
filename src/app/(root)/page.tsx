@@ -27,12 +27,12 @@ import circle from "../../../public/accets/images/Property 1=Primary Icon Only.s
 import Qcircle from "../../../public/accets/images/question-circle.svg";
 import kink from "../../../public/accets/images/link.svg";
 import Link from "next/link";
-import TrialPage from "../../../[components]/TrialPage";
+import TrialPage from "../../../[components]/trial/TrialPage";
 
 export default async function Home() {
   return (
     <div
-      className="bg-cover bg-center  w-100%"
+      className="bg-cover bg-center h-100%  w-100%"
       style={{
         backgroundImage: `url(${bgimg.src})`,
       }}

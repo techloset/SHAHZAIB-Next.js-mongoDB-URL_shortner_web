@@ -1,10 +1,10 @@
 "use client";
 
-import QR from "../public/accets/images/QR.svg";
-import Copy from "../public/accets/images/copy.svg";
-import lnk from "../public/accets/images/link.svg";
-import del from "../public/accets/images/arrow-1.svg";
-import edit from "../public/accets/images/arrow.svg";
+import QR from "../../public/accets/images/QR.svg";
+import Copy from "../../public/accets/images/copy.svg";
+import lnk from "../../public/accets/images/link.svg";
+import del from "../../public/accets/images/arrow-1.svg";
+import edit from "../../public/accets/images/arrow.svg";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -166,8 +166,8 @@ export default function MainPage() {
               <td className="text-center">
                 <div className="flex items-center justify-center">
                   <Link href={"/add"}>
-                    <div className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ">
-                      <Image src={edit} alt="edit" className="" />
+                    <div className="h-[42px] w-[42px] bg-red-500 rounded-3xl flex justify-center ">
+                      <Image src={edit} alt="edit" className="h-16 w-16" />
                     </div>
                   </Link>
                   <div

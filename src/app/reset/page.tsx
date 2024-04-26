@@ -3,8 +3,8 @@ import bgimg from "../../../public/accets/images/Register.svg";
 import img1 from "../../../public/accets/images/Linkly.svg";
 import img2 from "../../../public/accets/images/Property 1=Default.svg";
 import Link from "next/link";
-import Button from "../../../[components]/Button";
-import Input from "../../../[components]/Input";
+import Button from "../../../[components]/button/Button";
+import Input from "../../../[components]/input/Input";
 
 export default function Reset() {
   return (
@@ -42,7 +42,7 @@ export default function Reset() {
             // value={email}
             // onChange={(e) => setConfirmPassword(e.target.value)}
           />
-            <Button name="Reset" />
+          <Button name="Reset" />
         </div>
       </div>
     </div>

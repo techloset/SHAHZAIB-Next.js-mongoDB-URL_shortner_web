@@ -5,10 +5,10 @@ import bell from "../../../public/accets/images/chevron-down.svg";
 import arro from "../../../public/accets/images/arrow-right.svg";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../libs/AuthOptions";
-import AddEdit from "../../../[components]/AddEdit";
+import AddEdit from "../../../[components]/add/AddEdit";
 
 export default async function Add() {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
   return (
     <div
       className="bg-cover bg-center h-screen w-100%"
@@ -43,7 +43,7 @@ export default async function Add() {
           </div>
         </div>
       </div>
-        <AddEdit/>
-      </div>
+      <AddEdit />
+    </div>
   );
 }
