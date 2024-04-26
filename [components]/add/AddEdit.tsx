@@ -3,9 +3,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 import Button from "../button/Button";
-import Link from "../../public/accets/images/link.svg";
-import kink from "../../public/accets/images/link.svg";
-import Input from "../input/Input";
+import { link } from "../../src/app/constants/constants";
 import toast from "react-hot-toast";
 
 interface ApiResponse {
@@ -49,7 +47,7 @@ const AddEdit: React.FC = () => {
         <div className="flex flex-row relative">
           <span className="">
             <Image
-              src={Link}
+              src={link}
               alt="Link"
               className="h-[25px] w-[25px] absolute ml-10 mt-20"
             />
@@ -64,7 +62,7 @@ const AddEdit: React.FC = () => {
         </div>
         <div className="flex flex-row relative">
           <span className="h-[25px] w-[25] absolute ml-10 ">
-            <Image src={kink} alt="Link" className="" />
+            <Image src={link} alt="Link" className="" />
           </span>
           <input
             type="text"

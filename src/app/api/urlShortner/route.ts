@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client';
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../../../libs/AuthOptions";
 const prismaClient = new PrismaClient();
 
 export const GET = async (req: NextRequest) => {
@@ -15,33 +17,75 @@ export const GET = async (req: NextRequest) => {
   }
 };
 
+// export const POST = async (req: NextRequest) => {
+//     const session = await getServerSession(authOptions
+//     );
+
+//   try {
+//     const { longUrl } = await req.json();
+//     console.log("Received longUrl:", longUrl);
+
+//     const shortId = Math.random().toString(36).substring(2, 16);
+
+//     const addUrl = await prismaClient.url.create({
+//       data: {
+//         longUrl,
+//         shortId,
+//         clickCount: 0, 
+//       },
+//     });
+//     console.log("addUrl =>", addUrl);
+//     return NextResponse.json({
+//       message: "Url created successfully",
+//       longUrl: longUrl,
+//       shortId: addUrl.shortId,
+//       id: addUrl.id,
+//       email: session?.user?.email,
+//       clickCount: addUrl.clickCount, 
+//     });
+//   } catch (err) {
+//     console.error("Error creating url:", err);
+//     return NextResponse.json({ message: "Something went wrong" });
+//   }
+// };
+
+
 export const POST = async (req: NextRequest) => {
-  try {
-    const { longUrl } = await req.json();
-    console.log("Received longUrl:", longUrl);
+    const session = await getServerSession(authOptions);
 
-    const shortId = Math.random().toString(36).substring(2, 16);
+    try {
+        const { longUrl } = await req.json();
+        console.log("Received longUrl:", longUrl);
 
-    const addUrl = await prismaClient.url.create({
-      data: {
-        longUrl,
-        shortId,
-        clickCount: 0, 
-      },
-    });
-    console.log("addUrl =>", addUrl);
-    return NextResponse.json({
-      message: "Url created successfully",
-      longUrl: longUrl,
-      shortId: addUrl.shortId,
-      id: addUrl.id,
-      clickCount: addUrl.clickCount, 
-    });
-  } catch (err) {
-    console.error("Error creating url:", err);
-    return NextResponse.json({ message: "Something went wrong" });
-  }
+        const shortId = Math.random().toString(36).substring(2, 16);
+
+        const userEmail = session?.user?.email;
+
+        const addUrl = await prismaClient.url.create({
+            data: {
+                longUrl,
+                shortId,
+                clickCount: 0,
+                userEmail: userEmail,
+            },
+        });
+        console.log("addUrl =>", addUrl);
+
+        return NextResponse.json({
+            message: "Url created successfully",
+            longUrl: longUrl,
+            shortId: addUrl.shortId,
+            id: addUrl.id,
+            email: userEmail,
+            clickCount: addUrl.clickCount,
+        });
+    } catch (err) {
+        console.error("Error creating url:", err);
+        return NextResponse.json({ message: "Something went wrong" });
+    }
 };
+
+
 
 export const PUT = async (req: NextRequest) => {
   try {

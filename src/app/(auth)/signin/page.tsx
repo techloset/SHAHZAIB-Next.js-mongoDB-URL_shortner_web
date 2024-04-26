@@ -1,7 +1,5 @@
 import Image from "next/image";
-import bgimg from "../../../../public/accets/images/Register.svg";
-import img1 from "../../../../public/accets/images/Linkly.svg";
-import img2 from "../../../../public/accets/images/Property 1=Default.svg";
+import { bgimg, img1, img2 } from "@/app/constants/constants";
 import Link from "next/link";
 import LoginForm from "./components/LoginForm";
 

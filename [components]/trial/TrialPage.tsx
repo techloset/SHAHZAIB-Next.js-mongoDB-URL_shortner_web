@@ -40,11 +40,13 @@ export default function TrialPage() {
   }, [userData]);
 
   console.log("Data", data);
+  // console.log('userProfileData', userProfileData)
 
   return (
     <div className="w-[1421px] h-[500px] ">
       <table className="text-white w-[1421px]">
         <tr className=" bg-red-500 border-4 border-white h-[63px] ">
+          
           <th className="text-center">ShortLink</th>
           <th className="text-center">OriginalLink</th>
           <th className="text-center">QR Code</th>

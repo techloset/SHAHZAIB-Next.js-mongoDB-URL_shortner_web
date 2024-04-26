@@ -1,8 +1,5 @@
 import Image from "next/image";
-import bgimg from "../../../public/accets/images/Register.svg";
-import img1 from "../../../public/accets/images/Linkly.svg";
-import img2 from "../../../public/accets/images/Property 1=Default.svg";
-import Link from "next/link";
+import { bgimg, img1, img2 } from "../constants/constants";
 import Button from "../../../[components]/button/Button";
 import Input from "../../../[components]/input/Input";
 

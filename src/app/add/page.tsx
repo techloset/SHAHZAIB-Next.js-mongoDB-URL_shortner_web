@@ -1,8 +1,5 @@
 import Image from "next/image";
-import bgimg from "../../../public/accets/images/Register.svg";
-import img1 from "../../../public/accets/images/Linkly.svg";
-import bell from "../../../public/accets/images/chevron-down.svg";
-import arro from "../../../public/accets/images/arrow-right.svg";
+import { bgimg, img1, bell, arro } from "../constants/constants";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../libs/AuthOptions";
 import AddEdit from "../../../[components]/add/AddEdit";

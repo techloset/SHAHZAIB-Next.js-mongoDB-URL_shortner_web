@@ -1,16 +1,11 @@
 "use client";
 
-import QR from "../../public/accets/images/QR.svg";
-import Copy from "../../public/accets/images/copy.svg";
-import lnk from "../../public/accets/images/link.svg";
-import del from "../../public/accets/images/arrow-1.svg";
-import edit from "../../public/accets/images/arrow.svg";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { fetchUser } from "@/app/redux/slices/userSlice";
-
+import { QR, Copy, lnk, del, edit } from "@/app/constants/constants";
 
 import axios from "axios";
 import toast from "react-hot-toast";

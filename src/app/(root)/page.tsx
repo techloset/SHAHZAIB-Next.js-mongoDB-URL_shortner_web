@@ -16,16 +16,18 @@
 //   );
 // }
 import Image from "next/image";
+import {
+  bgimg,
+  img1,
+  img2,
+  sigin,
+  group,
+  short,
+  circle,
+  Qcircle,
+  link
+} from "../constants/constants";
 
-import bgimg from "../../../public/accets/images/Register.svg";
-import img1 from "../../../public/accets/images/Linkly.svg";
-import img2 from "../../../public/accets/images/Property 1=Default.svg";
-import sigin from "../../../public/accets/images/sign-in.svg";
-import group from "../../../public/accets/images/Group 12.svg";
-import short from "../../../public/accets/images/Shorten Your Loooong Links _).svg";
-import circle from "../../../public/accets/images/Property 1=Primary Icon Only.svg";
-import Qcircle from "../../../public/accets/images/question-circle.svg";
-import kink from "../../../public/accets/images/link.svg";
 import Link from "next/link";
 import TrialPage from "../../../[components]/trial/TrialPage";
 
@@ -82,7 +84,7 @@ export default async function Home() {
           <div className="flex justify-center mt-10">
             <div className="flex flex-row relative">
               <span className="h-[25px] w-[25] absolute ml-10 mt-8 ">
-                <Image src={kink} alt="Link" />
+                <Image src={link} alt="Link" />
               </span>
               <input
                 type="text"

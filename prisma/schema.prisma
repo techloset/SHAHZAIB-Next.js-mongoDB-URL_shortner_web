@@ -27,6 +27,7 @@ model url {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   longUrl   String @unique
   shortId   String @unique
+  userEmail  String?
   clickCount Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

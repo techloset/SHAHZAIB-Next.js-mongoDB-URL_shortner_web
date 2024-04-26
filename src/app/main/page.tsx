@@ -1,14 +1,16 @@
 import Image from "next/image";
-import bgimg from "../../../public/accets/images/Register.svg";
-import img1 from "../../../public/accets/images/Linkly.svg";
-import kink from "../../../public/accets/images/link.svg";
-import bell from "../../../public/accets/images/chevron-down.svg";
-import arro from "../../../public/accets/images/arrow-right.svg";
-import group from "../../../public/accets/images/Group 12.svg";
-import A from "../../../public/accets/images/icons8-clock.svg";
-import B from "../../../public/accets/images/chart-simple.svg";
-import filImg from "../../../public/accets/images/filter.svg";
-import C from "../../../public/accets/images/cog.svg";
+import {
+  bgimg,
+  img1,
+  link,
+  bell,
+  arro,
+  group,
+  A,
+  B,
+  filImg,
+  C,
+} from "../constants/constants";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../libs/AuthOptions";
 import MainPage from "../../../[components]/main/MainPage";
@@ -28,7 +30,7 @@ export default async function Add() {
           <Image src={img1} alt="Linkly" className="flex ml-12" />
           <div className="flex flex-row relative">
             <span className="h-[25px] w-[25] absolute ml-10 mt-8 ">
-              <Image src={kink} alt="Link" />
+              <Image src={link} alt="Link" />
             </span>
             <input
               type="text"
