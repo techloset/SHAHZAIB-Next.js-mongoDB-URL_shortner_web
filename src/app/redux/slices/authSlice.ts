@@ -12,7 +12,7 @@ interface UserProfileData {
 }
 
 export interface UserProfileState {
-    userData: UserProfileData[] | null;
+    userData: UserProfileData | null;
     loading: boolean;
     error: string | null;
 }
@@ -28,7 +28,7 @@ export const fetchUserData = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get("/api/profileData");
-            const result: UserProfileData[] = response.data; 
+            const result: UserProfileData = response.data; 
             return result;
         } catch (error) {
             throw error;

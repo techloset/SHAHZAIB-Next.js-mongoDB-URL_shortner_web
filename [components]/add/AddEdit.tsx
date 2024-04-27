@@ -2,7 +2,7 @@
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
-import Button from "../button/Button";
+import Button from "../../[components]/button/Button";
 import { link } from "../../src/app/constants/constants";
 import toast from "react-hot-toast";
 
@@ -42,41 +42,39 @@ const AddEdit: React.FC = () => {
   };
 
   return (
-    <div className="w-100% h-[686px] flex  flex-col items-center mt-32">
-      <div className="flex flex-col">
-        <div className="flex flex-row relative">
-          <span className="">
-            <Image
-              src={link}
-              alt="Link"
-              className="h-[25px] w-[25px] absolute ml-10 mt-20"
-            />
-          </span>
-          <input
-            type="text"
-            value={longUrl}
-            onChange={handleLongUrlChange}
-            placeholder="         Enter the link to shorten here"
-            className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
-          />
-        </div>
-        <div className="flex flex-row relative">
-          <span className="h-[25px] w-[25] absolute ml-10 ">
-            <Image src={link} alt="Link" className="" />
-          </span>
-          <input
-            type="text"
-            placeholder="                Enter custom slug"
-            onChange={handleLongUrlChange}
-            className="w-[1100px] h-[76px] rounded-[48px] border-[4px] border-gray-400 bg-slate-800 mt-10 text-white  text-[30px] px-5"
-          />
-          <button className="w-[268px] h-[68px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[827px] absolute cursor-pointer">
-            Auto Generate
-          </button>
-        </div>
-
-        <Button name="Shorten Now!" onClick={handleSubmit} />
+    <div className="flex flex-col items-center ">
+      <div className="relative  ">
+        <Image
+          className="absolute top-1/3 left-4 transform -translate-y-1/2 mt-6 ml-8"
+          src={link}
+          alt="Link Icon"
+        />
+        <input
+          className="text-3xl outline-none p-[24px] pl-[48px] border-[4px] border-[#353C4A] w-[1100px] h-[76px] rounded-[48px] mb-[32px] peer focus:border-[#144EE31A] bg-slate-600 drop-shadow-[#0000001A] text-white text-[25px] px-5"
+          placeholder="           Enter the link to shorten here"
+          type="text"
+          value={longUrl}
+          onChange={handleLongUrlChange}
+        />
       </div>
+      <div className="relative mt-10 ">
+        <Image
+          className="absolute top-1/3 left-4 transform -translate-y-1/2  mt-6 ml-8"
+          src={link}
+          alt="Link Icon"
+        />
+        <input
+          className="text-3xl outline-none p-[24px] pl-[48px] border-[4px] border-[#363f52] w-[1100px] h-[76px] rounded-[48px] mb-[32px] peer focus:border-[#144EE31A] bg-slate-600 drop-shadow-[#0000001A] text-white text-[25px] px-5"
+          placeholder="            Enter custom slug"
+        />
+     {/* <div>
+      <button className="w-[268px] h-[68px] rounded-[100px]  border-[1px] bg-blue-700 text-white ml-[827px] absolute cursor-pointer">
+        Shorten Now!
+      </button>
+     </div> */}
+      </div>
+
+      <Button name="Shorten Now!" onClick={handleSubmit} />
     </div>
   );
 };

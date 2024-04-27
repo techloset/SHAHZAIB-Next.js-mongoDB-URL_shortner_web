@@ -5,6 +5,7 @@ interface UserData {
     id: string | null;
     longUrl: string | null;
     shortId: string | null;
+    userEmail: string | null;
     clickCount: number | null;
     createdAt: string | null;
     updatedAt: string | null;

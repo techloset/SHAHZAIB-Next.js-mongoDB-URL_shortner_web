@@ -55,7 +55,7 @@ export async function GET(req: IncomingMessage): Promise<NextResponse> {
       return new NextResponse("User email not found", { status: 400 });
     }
 
-    const userData = await prismadb.user.findMany({
+    const userData = await prismadb.user.findFirst({
       where: {
         email: {
           equals: userEmail,

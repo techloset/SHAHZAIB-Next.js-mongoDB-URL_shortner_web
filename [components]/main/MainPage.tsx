@@ -11,11 +11,14 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { NextApiResponse } from "next";
 import { useRouter } from "next/navigation";
+import { getSession } from "next-auth/react";
+import { fetchUserData } from "@/app/redux/slices/authSlice";
 
 interface UserData {
   id: string | null;
   longUrl: string | null;
   shortId: string | null;
+  userEmail: string | null;
   clickCount: number | null;
   createdAt: string | null;
   updatedAt: string | null;
@@ -25,6 +28,10 @@ interface UserData {
 export default function MainPage() {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.fetchUser.userData);
+  const userProfileData = useAppSelector(
+    (state) => state.fetchUserData.userData
+  );
+
   const router = useRouter();
   const [data, setData] = useState<UserData[]>([]);
 
@@ -33,9 +40,16 @@ export default function MainPage() {
   }, [dispatch]);
 
   useEffect(() => {
+    dispatch(fetchUserData());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (userData !== null) {
       console.log("state", userData);
-      setData(userData);
+      const useremail = userData.filter(
+        (item) => item.userEmail === userProfileData?.email
+      );
+      setData(useremail);
     }
   }, [userData]);
 
@@ -59,7 +73,7 @@ export default function MainPage() {
     }
   };
 
-  const getUrlFromShortId = async (shortId : any , res: NextApiResponse) => {
+  const getUrlFromShortId = async (shortId: any, res: NextApiResponse) => {
     const filteredItem = data.find((item: any) => item.shortId === shortId);
 
     if (filteredItem) {
@@ -114,7 +128,7 @@ export default function MainPage() {
 
   console.log("Data", data);
   return (
-    <div className="  bg-black w-[1421px] h-[800px] ">
+    <div className="  bg-black w-[1421px] h-screen">
       <table className="text-white w-[1421px]">
         <tr>
           <th className="text-center text-xl">Short Link</th>
@@ -143,7 +157,7 @@ export default function MainPage() {
                 </div>
               </td>
               <td className="text-center py-5 hover:text-blue-700">
-                {item.longUrl?.slice(0, 30)}......
+                {item.longUrl?.slice(0, 30)}...
               </td>
               <td className="text-center py-5 flex justify-center items-center">
                 <Image src={QR} alt="QR" className="h-[36px] w-[36px] mt-4" />
@@ -158,20 +172,30 @@ export default function MainPage() {
                 </div>
               </td>
               <td className="text-center">{item.createdAt?.slice(0, 12)}</td>
-              <td className="text-center">
-                <div className="flex items-center justify-center">
-                  <Link href={"/add"}>
-                    <div className="h-[42px] w-[42px] bg-red-500 rounded-3xl flex justify-center ">
-                      <Image src={edit} alt="edit" className="h-16 w-16" />
-                    </div>
-                  </Link>
+              <td className="">
+                <div className="flex items-center justify-center h-20">
+                  <div className="h-[100px] w-[100px] bg-red-600">
+                    <Link href={"/add"}>
+                      <div className=" ">
+                        <Image
+                          src={edit}
+                          alt="edit"
+                          className="h-[36px] w-[36px] bg-red-700 flex justify-center "
+                        />
+                      </div>
+                    </Link>
+                  </div>
                   <div
                     className="h-[42px] w-[42px] bg-slate-500 rounded-3xl flex justify-center ml-2"
                     onClick={() => {
                       handleDelete(item?.id);
                     }}
                   >
-                    <Image src={del} alt="delete" className="" />
+                    <Image
+                      src={del}
+                      alt="delete"
+                      className="h-[16px] w-[16px]"
+                    />
                   </div>
                 </div>
               </td>

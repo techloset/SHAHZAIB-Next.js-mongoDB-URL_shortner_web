@@ -16,17 +16,17 @@ export default async function Add() {
       <div className="pt-12">
         <div>
           <div className="flex justify-between">
-            <Image src={img1} alt="Linkly" className="flex ml-12" />
+            <Image src={img1} alt="Linkly" className="flex ml-12"/>
             <div className="mr-12 flex">
               <div className="flex w-[150px] h-[60px] bg-slate-600 rounded-3xl mr-4">
-                <div className="text-white ml-5 mt-2">
+                <div className="text-white ml-5 mt-2 ">
                   <p> Welcome</p>
                   <p>{session?.user?.name}</p>
                 </div>
                 <Image
                   src={bell}
                   alt="chevron-down"
-                  className="w-[20px] h-[28px] mt- ml-4"
+                  className="w-[20px] h-[28px] mt-4 ml-4"
                 />
               </div>
               <div className="h-[60px] w-[60px] rounded-full bg-blue-700 ">
@@ -40,7 +40,9 @@ export default async function Add() {
           </div>
         </div>
       </div>
+      <div className="flex justify-center items-center mt-56">
       <AddEdit />
+      </div>
     </div>
   );
 }
