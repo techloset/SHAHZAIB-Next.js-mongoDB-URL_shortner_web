@@ -6,6 +6,7 @@ import Button from "../../[components]/button/Button";
 import { link } from "../../src/app/constants/constants";
 import toast from "react-hot-toast";
 
+
 interface ApiResponse {
   message: string;
 }

@@ -16,40 +16,6 @@ export const GET = async (req: NextRequest) => {
     });
   }
 };
-
-// export const POST = async (req: NextRequest) => {
-//     const session = await getServerSession(authOptions
-//     );
-
-//   try {
-//     const { longUrl } = await req.json();
-//     console.log("Received longUrl:", longUrl);
-
-//     const shortId = Math.random().toString(36).substring(2, 16);
-
-//     const addUrl = await prismaClient.url.create({
-//       data: {
-//         longUrl,
-//         shortId,
-//         clickCount: 0, 
-//       },
-//     });
-//     console.log("addUrl =>", addUrl);
-//     return NextResponse.json({
-//       message: "Url created successfully",
-//       longUrl: longUrl,
-//       shortId: addUrl.shortId,
-//       id: addUrl.id,
-//       email: session?.user?.email,
-//       clickCount: addUrl.clickCount, 
-//     });
-//   } catch (err) {
-//     console.error("Error creating url:", err);
-//     return NextResponse.json({ message: "Something went wrong" });
-//   }
-// };
-
-
 export const POST = async (req: NextRequest) => {
     const session = await getServerSession(authOptions);
 

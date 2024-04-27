@@ -1,6 +1,5 @@
 "use client";
 
-import QR from "../../public/accets/images/QR.svg";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
@@ -9,6 +8,7 @@ import { fetchUserData } from "@/app/redux/slices/authSlice";
 import { NextApiResponse } from "next";
 import toast from "react-hot-toast";
 import axios from "axios";
+import QRCode from "qrcode.react";
 
 interface UserData {
   id: string | null;
@@ -105,35 +105,41 @@ export default function TrialPage() {
   return (
     <div className="w-[1421px] h-full ">
       <table className="text-white w-[1421px]">
-        <tr className=" bg-red-500 border-4 border-white h-[63px] ">
-          <th className="text-center">ShortLink</th>
-          <th className="text-center">OriginalLink</th>
-          <th className="text-center">QR Code</th>
-          <th className="text-center">Clicks</th>
-          <th className="text-center">Status</th>
-          <th className="text-center">Date</th>
-        </tr>
+        <thead>
+          <tr className=" bg-red-500 border-4 border-white h-[63px] ">
+            <th className="text-center">ShortLink</th>
+            <th className="text-center">OriginalLink</th>
+            <th className="text-center">QR Code</th>
+            <th className="text-center">Clicks</th>
+            <th className="text-center">Status</th>
+            <th className="text-center">Date</th>
+          </tr>
+        </thead>
         {data?.map((item, i) => {
           if (i < 15) {
             return (
-              <tr key={i}>
-                <td className="text-center py-5">
-                  <div
-                    onClick={() => {
-                      getUrlFromShortId(item?.shortId);
-                    }}
-                  >
-                    {item.shortId}
-                  </div>
-                </td>
-                <td className="text-center">{item.longUrl?.slice(0, 30)}</td>
-                <td className="flex justify-center items-center mt-4 ">
-                  <Image src={QR} alt="qr" />
-                </td>
-                <td className="text-center">{item.clickCount}</td>
-                <td className="text-center text-green-500">Inactive</td>
-                <td className="text-center">{item.createdAt?.slice(0, 12)}</td>
-              </tr>
+              <tbody>
+                <tr key={i}>
+                  <td className="text-center py-5">
+                    <div
+                      onClick={() => {
+                        getUrlFromShortId(item?.shortId);
+                      }}
+                    >
+                      {item.shortId}
+                    </div>
+                  </td>
+                  <td className="text-center">{item.longUrl?.slice(0, 30)}</td>
+                  <td className="flex justify-center items-center mt-4 ">
+                    <QRCode value={item.longUrl || ""} size={36} />
+                  </td>
+                  <td className="text-center">{item.clickCount}</td>
+                  <td className="text-center text-green-500">Inactive</td>
+                  <td className="text-center">
+                    {item.createdAt?.slice(0, 12)}
+                  </td>
+                </tr>
+              </tbody>
             );
           }
         })}
