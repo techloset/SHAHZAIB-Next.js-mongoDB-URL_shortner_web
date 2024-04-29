@@ -9,6 +9,8 @@ import { NextApiResponse } from "next";
 import toast from "react-hot-toast";
 import axios from "axios";
 import QRCode from "qrcode.react";
+import Loader from "../Loader";
+
 
 interface UserData {
   id: string | null;
@@ -26,7 +28,7 @@ export default function TrialPage() {
   const userProfileData = useAppSelector(
     (state) => state.fetchUserData.userData
   );
-
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState<UserData[]>([]);
 
   useEffect(() => {
@@ -118,28 +120,36 @@ export default function TrialPage() {
         {data?.map((item, i) => {
           if (i < 15) {
             return (
-              <tbody>
-                <tr key={i}>
-                  <td className="text-center py-5">
-                    <div
-                      onClick={() => {
-                        getUrlFromShortId(item?.shortId);
-                      }}
-                    >
-                      {item.shortId}
-                    </div>
-                  </td>
-                  <td className="text-center">{item.longUrl?.slice(0, 30)}</td>
-                  <td className="flex justify-center items-center mt-4 ">
-                    <QRCode value={item.longUrl || ""} size={36} />
-                  </td>
-                  <td className="text-center">{item.clickCount}</td>
-                  <td className="text-center text-green-500">Inactive</td>
-                  <td className="text-center">
-                    {item.createdAt?.slice(0, 12)}
-                  </td>
-                </tr>
-              </tbody>
+              <>
+                {loading ? (
+                  <Loader />
+                ) : (
+                  <tbody>
+                    <tr key={i}>
+                      <td className="text-center py-5">
+                        <div
+                          onClick={() => {
+                            getUrlFromShortId(item?.shortId);
+                          }}
+                        >
+                          {item.shortId}
+                        </div>
+                      </td>
+                      <td className="text-center">
+                        {item.longUrl?.slice(0, 30)}
+                      </td>
+                      <td className="flex justify-center items-center mt-4 ">
+                        <QRCode value={item.longUrl || ""} size={36} />
+                      </td>
+                      <td className="text-center">{item.clickCount}</td>
+                      <td className="text-center text-green-500">Inactive</td>
+                      <td className="text-center">
+                        {item.createdAt?.slice(0, 12)}
+                      </td>
+                    </tr>
+                  </tbody>
+                )}
+              </>
             );
           }
         })}

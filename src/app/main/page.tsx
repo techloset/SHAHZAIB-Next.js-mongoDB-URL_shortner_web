@@ -41,7 +41,7 @@ export default async function Add() {
               Shorten Now!
             </button>
           </div>
-          <div className="flex w-[150px] h-[60px] bg-slate-600 rounded-3xl">
+          <div className="flex w-[130px] h-[60px] bg-slate-600 rounded-3xl">
             <div className="text-white ml-5 mt-2">
               <p> Welcome</p>
               <p>{session?.user?.name}</p>

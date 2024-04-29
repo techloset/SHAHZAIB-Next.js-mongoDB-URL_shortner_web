@@ -34,7 +34,7 @@ import TrialPage from "../../../[components]/trial/TrialPage";
 export default async function Home() {
   return (
     <div
-      className="bg-cover bg-center h-screen  w-100%"
+      className="bg-cover bg-center h-100%  w-100%"
       style={{
         backgroundImage: `url(${bgimg.src})`,
       }}

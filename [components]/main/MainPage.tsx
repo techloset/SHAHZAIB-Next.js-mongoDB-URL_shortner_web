@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 import { NextApiResponse } from "next";
 import { useRouter } from "next/navigation";
 import { fetchUserData } from "@/app/redux/slices/authSlice";
+import Loader from "../Loader";
 
 interface UserData {
   id: string | null;
@@ -26,6 +27,7 @@ interface UserData {
 
 export default function MainPage() {
   const dispatch = useAppDispatch();
+  const [loading, setLoading ] = useState(false)
   const userData = useAppSelector((state) => state.fetchUser.userData);
   const userProfileData = useAppSelector(
     (state) => state.fetchUserData.userData
@@ -142,7 +144,11 @@ export default function MainPage() {
         </thead>
         {data?.map((item, i) => {
           return (
-            <tbody>
+            <>
+             {loading ? (
+              <Loader/>
+            ) : (
+<tbody>
               <tr key={i}>
                 <td className="text-center py-5">
                   <div className="flex justify-center items-center">
@@ -203,6 +209,9 @@ export default function MainPage() {
                 </td>
               </tr>
             </tbody>
+            )}
+            
+        </>
           );
         })}
       </table>
