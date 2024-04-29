@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { bgimg, img1, img2 } from "../constants/constants";
-import Button from "../../../[components]/button/Button";
-import Input from "../../../[components]/input/Input";
+import ResetPage from "../../../[components]/reset/ResetPage";
 
 export default function Reset() {
+
   return (
     <div
       className="bg-cover bg-center h-screen w-100%"
@@ -20,27 +20,7 @@ export default function Reset() {
           Linkly is an efficient and easy-to-use URL shortening service that
           streamlines your online experience.
         </p>
-        <div className="flex flex-col">
-          <Input
-            type="password"
-            placeholder="   Current Password"
-            // value={password}
-            // onChange={(e) => setPassword(e.target.value)}
-          />
-          <Input
-            type="password"
-            placeholder="   New Password"
-            // value={email}
-            // onChange={(e) => setNewPassword(e.target.value)}
-          />
-          <Input
-            type="password"
-            placeholder="   Confirm New Passward"
-            // value={email}
-            // onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          <Button name="Reset" />
-        </div>
+        <ResetPage/>
       </div>
     </div>
   );
