@@ -13,11 +13,11 @@ export default function Forget() {
       const userId = "AQw6MFs3D-QUwayQy";
 
       const templateParams = {
-        from_name: "URL shorter",
-        to_name: "Asad Rana",
+        from_name: "URL SHORTNER",
+        to_name: "URL shorter",
         message: `http://localhost:3000/forgetRoute/${email}`,
         userEmail: email,
-        userName: "Rana Asad Ali Munj",
+        userName: "URL Shortner ",
         reply_to: "dellrugged5414@gmail.com",
       };
 
@@ -39,8 +39,8 @@ export default function Forget() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <div>
-        <p className="text-white">{`http://localhost:3000/forgetRoute/${email}`}</p>
-        <Button onClick={handleSendEmailToOwner} name="Forget" />
+        {/* <p className="text-white">{`http://localhost:3000/forgetRoute/${email}`}</p> */}
+        <Button  name="Forget" />
       </div>
     </div>
   );

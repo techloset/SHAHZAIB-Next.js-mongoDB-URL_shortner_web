@@ -21,7 +21,7 @@ export const POST = async (req: NextRequest) => {
 
     try {
         const { longUrl } = await req.json();
-        console.log("Received longUrl:", longUrl);
+        // console.log("Received longUrl:", longUrl);
 
         const shortId = Math.random().toString(36).substring(2, 16);
 
@@ -35,7 +35,7 @@ export const POST = async (req: NextRequest) => {
                 userEmail: userEmail,
             },
         });
-        console.log("addUrl =>", addUrl);
+        // console.log("addUrl =>", addUrl);
 
         return NextResponse.json({
             message: "Url created successfully",
@@ -56,7 +56,7 @@ export const POST = async (req: NextRequest) => {
 export const PUT = async (req: NextRequest) => {
   try {
     const { shortId } = await req.json();
-    console.log("Received shortId:", shortId);
+    // console.log("Received shortId:", shortId);
 
     const url = await prismaClient.url.findUnique({
       where: { shortId }
@@ -71,7 +71,7 @@ export const PUT = async (req: NextRequest) => {
       data: { clickCount: url.clickCount + 1 }
     });
 
-    console.log("Updated URL =>", updatedUrl);
+    // console.log("Updated URL =>", updatedUrl);
 
     return NextResponse.json({
       message: "URL accessed successfully", 
@@ -89,7 +89,7 @@ export const PUT = async (req: NextRequest) => {
 export const DELETE = async (req: NextRequest) => {
   try {
     const { id } = await req.json();
-    console.log("Received id:", id);
+    // console.log("Received id:", id);
 
     const url = await prismaClient.url.findUnique({
       where: { id },
@@ -103,7 +103,7 @@ export const DELETE = async (req: NextRequest) => {
       where: { id },
     });
 
-    console.log("Deleted URL with id:", id);
+    // console.log("Deleted URL with id:", id);
 
     return NextResponse.json({
       message: "URL deleted successfully",

@@ -14,7 +14,7 @@ export async function GET(req: IncomingMessage): Promise<NextResponse> {
 
     const userEmail = session.user?.email;
 
-    console.log("session", userEmail);
+    // console.log("session", userEmail);
 
     if (!userEmail) {
       return new NextResponse("User email not found", { status: 400 });

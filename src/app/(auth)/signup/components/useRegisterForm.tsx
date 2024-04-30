@@ -35,7 +35,7 @@ export default function RegisterForm() {
 
       router.push("/signin");
     } catch (err: any) {
-      console.log(err);
+      // console.log(err);
       toast.error(err?.response?.data);
     } finally {
       setLoading(false);

@@ -29,7 +29,7 @@ export default function useTrialPage() {
   useEffect(() => {
     setLoading(true);
     if (userData !== null) {
-      console.log("state", userData);
+      // console.log("state", userData);
       const useremail = userData.filter(
         (item) => item.userEmail === userProfileData?.email
       );
@@ -38,7 +38,7 @@ export default function useTrialPage() {
     setLoading(false);
   }, [userData]);
 
-  console.log("Data", data);
+  // console.log("Data", data);
 
   const getUrlFromShortId = async (shortId: any, res: NextApiResponse) => {
     const filteredItem = data.find((item: any) => item.shortId === shortId);
@@ -72,7 +72,7 @@ export default function useTrialPage() {
       const response = await axios.put("/api/urlshortner", { shortId });
 
       if (response.status === 200) {
-        console.log(response.data.message);
+        // console.log(response.data.message);
         toast.success(response.data.message);
 
         return {

@@ -114,7 +114,7 @@ export default function useMainPage() {
   };
 
 
-  console.log("Data", data);
+  // console.log("Data", data);
   return  {
     data,
     handleDelete,

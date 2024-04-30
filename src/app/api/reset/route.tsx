@@ -68,7 +68,7 @@ export async function PUT(req: Request): Promise<Response> {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err: any) {
-    console.log("UPDATE_ERR: " + err);
+    // console.log("UPDATE_ERR: " + err);
     return new Response("Internal Server Error", { status: 500 });
   }
 }

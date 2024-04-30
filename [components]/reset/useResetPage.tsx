@@ -41,7 +41,7 @@ export default function useResetPage() {
 
       const data = await response.json();
       toast.success("Password reset successful:");
-      console.log("Password reset successful:", data);
+      // console.log("Password reset successful:", data);
       SetCurrentPassword("");
       SetNewPassword("");
       SetConfirmPassword("");
