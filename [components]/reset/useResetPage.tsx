@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 export default function useResetPage() {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.fetchUserData.userData);
-  //   const [data , setData] = useState(userData);
   const [currentPassword, SetCurrentPassword] = useState("");
   const [newPassword, SetNewPassword] = useState("");
   const [confirmPassword, SetConfirmPassword] = useState("");
@@ -16,6 +15,7 @@ export default function useResetPage() {
     dispatch(fetchUserData());
   }, [dispatch]);
 
+  // console.log("userData.hash", userData?.hashedPassword);
   async function handlePasswordReset() {
     try {
       if (newPassword !== confirmPassword) {
@@ -42,9 +42,9 @@ export default function useResetPage() {
       const data = await response.json();
       toast.success("Password reset successful:");
       console.log("Password reset successful:", data);
-      SetCurrentPassword('')
-      SetNewPassword('')
-      SetConfirmPassword('')
+      SetCurrentPassword("");
+      SetNewPassword("");
+      SetConfirmPassword("");
     } catch (error) {
       console.error("Password reset failed:", error);
     }
@@ -58,5 +58,5 @@ export default function useResetPage() {
     confirmPassword,
     SetConfirmPassword,
     handlePasswordReset,
-  }
+  };
 }

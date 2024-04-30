@@ -6,7 +6,6 @@ import QRCode from "qrcode.react";
 import Loader from "../Loader";
 import useMainPage from "./useMainPage";
 
-
 export default function MainPage() {
   const {
     data,
@@ -17,6 +16,10 @@ export default function MainPage() {
   } = useMainPage();
   return (
     <div className="  bg-black w-[1421px] h-screen">
+        <>
+          {loading ? (
+            <Loader />
+          ) : (
       <table className="text-white w-[1421px]">
         <thead>
           <tr>
@@ -31,10 +34,6 @@ export default function MainPage() {
         </thead>
         {data?.map((item, i) => {
           return (
-            <>
-              {loading ? (
-                <Loader />
-              ) : (
                 <tbody>
                   <tr key={i}>
                     <td className="text-center py-5">
@@ -98,11 +97,11 @@ export default function MainPage() {
                     </td>
                   </tr>
                 </tbody>
-              )}
-            </>
           );
         })}
       </table>
+      )}
+    </>
     </div>
   );
 }

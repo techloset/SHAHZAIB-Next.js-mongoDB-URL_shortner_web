@@ -1,7 +1,5 @@
 "use client";
-import {
-  arro,
- } from "../../src/app/constants/constants";
+import {arro,} from "../../src/app/constants/constants";
 import React from 'react'
 import useDropdown from './useDropdown';
 import Image from 'next/image';
@@ -14,7 +12,7 @@ export default function Dropdown() {
     <div className="relative">
       <Image
         src={arro}
-        alt=""
+        alt="Arrow"
         className="w-[25px] h-[25px] ml-5 mt-4 "
         onClick={toggleDropdown}
       />

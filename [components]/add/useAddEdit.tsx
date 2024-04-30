@@ -1,14 +1,8 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import Image from "next/image";
-import Button from "../../[components]/button/Button";
-import { link } from "../../src/app/constants/constants";
+import { useState, ChangeEvent} from "react";
 import toast from "react-hot-toast";
-
-interface ApiResponse {
-  message: string;
-}
+import { ApiResponse } from "../../types/type";
 
 const useAddEdit = () => {
   const [longUrl, setLongUrl] = useState<string>("");

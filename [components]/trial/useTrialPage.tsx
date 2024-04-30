@@ -6,16 +6,7 @@ import { fetchUserData } from "@/app/redux/slices/authSlice";
 import { NextApiResponse } from "next";
 import toast from "react-hot-toast";
 import axios from "axios";
-
-interface UserData {
-  id: string | null;
-  longUrl: string | null;
-  shortId: string | null;
-  clickCount: number | null;
-  createdAt: string | null;
-  updatedAt: string | null;
-  date: string | null;
-}
+import { UserData } from "../../types/type";
 
 export default function useTrialPage() {
   const dispatch = useAppDispatch();
@@ -54,8 +45,8 @@ export default function useTrialPage() {
 
     if (filteredItem) {
       const longUrl = filteredItem.longUrl;
-      console.log("Filtered Item:", filteredItem);
-      console.log("Long URL:", longUrl);
+      // console.log("Filtered Item:", filteredItem);
+      // console.log("Long URL:", longUrl);
 
       if (longUrl) {
         try {

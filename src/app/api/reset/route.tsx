@@ -43,14 +43,6 @@ export async function PUT(req: Request): Promise<Response> {
 
     const newHashedPassword = await bcrypt.hash(newPassword, 12);
 
-    // const updatedUser = await prismadb.user.update({
-    //   where: {
-    //     email: userEmail,
-    //   },
-    //   data: {
-    //     hashedPassword: newHashedPassword,
-    //   },
-    // });
     const user = await prismadb.user.findFirst({
       where: {
         email: userEmail,

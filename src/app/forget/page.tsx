@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { bgimg, img1, img2 } from "../constants/constants";
-import Button from "../../../[components]/button/Button";
-import Input from "../../../[components]/input/Input";
+import Forget from "../../../[components]/forgetPage/ForgetPage";
 
-export default function Forget() {
+export default function page() {
   return (
     <div
       className="bg-cover bg-center h-screen w-100%"
@@ -20,15 +19,7 @@ export default function Forget() {
           Linkly is an efficient and easy-to-use URL shortening service that
           streamlines your online experience.
         </p>
-        <div className="flex flex-col">
-          <Input
-            type="email"
-            placeholder="   Email"
-            // value={email}
-            // onChange={(e) => setEmail(e.target.value)}
-          />
-          <Button name="Forget" />
-        </div>
+        <Forget />
       </div>
     </div>
   );

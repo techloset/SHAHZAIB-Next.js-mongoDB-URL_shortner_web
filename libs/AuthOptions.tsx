@@ -27,10 +27,6 @@ export const authOptions: AuthOptions = {
         if (!user || !user.id || !user.hashedPassword) {
           throw new Error("invalid credentials");
         }
-        // const currentHashedpassword = await bcrypt.hash(
-        //   credentials.password,
-        //   12
-        // );
        const compairpassword = await bcrypt.compare(credentials.password, user.hashedPassword);
        if(compairpassword){
         

@@ -1,10 +1,9 @@
-
 "use client";
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { signOut } from "next-auth/react";
 
 export default function useDropdown() {
-        const [isOpen, setIsOpen] = useState(false);
+const [isOpen, setIsOpen] = useState(false);
 
 const logout = () =>{
   signOut({

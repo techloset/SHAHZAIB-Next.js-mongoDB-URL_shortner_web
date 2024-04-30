@@ -1,29 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { fetchUser } from "@/app/redux/slices/userSlice";
-import { Copy, lnk, del, edit } from "@/app/constants/constants";
-import QRCode from "qrcode.react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { NextApiResponse } from "next";
 import { useRouter } from "next/navigation";
 import { fetchUserData } from "@/app/redux/slices/authSlice";
-import Loader from "../Loader";
-
-interface UserData {
-  id: string | null;
-  longUrl: string | null;
-  shortId: string | null;
-  userEmail: string | null;
-  clickCount: number | null;
-  createdAt: string | null;
-  updatedAt: string | null;
-  date: string | null;
-}
+import { UserData } from "../../types/type";
 
 export default function useMainPage() {
   const dispatch = useAppDispatch();
@@ -47,7 +32,7 @@ export default function useMainPage() {
 
   useEffect(() => {
     if (userData !== null) {
-      console.log("state", userData);
+      // console.log("state", userData);
       const useremail = userData.filter(
         (item) => item.userEmail === userProfileData?.email
       );
@@ -62,7 +47,7 @@ export default function useMainPage() {
       });
 
       if (response.status === 200) {
-        console.log(response.data.message);
+        // console.log(response.data.message);
         dispatch(fetchUser());
 
         toast.success(response.data.message);
@@ -80,8 +65,8 @@ export default function useMainPage() {
 
     if (filteredItem) {
       const longUrl = filteredItem.longUrl;
-      console.log("Filtered Item:", filteredItem);
-      console.log("Long URL:", longUrl);
+      // console.log("Filtered Item:", filteredItem);
+      // console.log("Long URL:", longUrl);
 
       if (longUrl) {
         try {
@@ -107,7 +92,7 @@ export default function useMainPage() {
       const response = await axios.put("/api/urlshortner", { shortId });
 
       if (response.status === 200) {
-        console.log(response.data.message);
+        // console.log(response.data.message);
         toast.success(response.data.message);
 
         return {

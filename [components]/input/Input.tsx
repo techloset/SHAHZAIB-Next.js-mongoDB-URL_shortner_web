@@ -1,11 +1,4 @@
-import React, { ChangeEvent } from "react";
-
-interface InputProps {
-  value?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  type?: string;
-  placeholder: string;
-}
+import { InputProps } from "../../types/type";
 
 export default function Input({ value, onChange, type, placeholder }: InputProps) {
   return (

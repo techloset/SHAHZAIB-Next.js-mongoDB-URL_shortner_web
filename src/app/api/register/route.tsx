@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import prismadb from "../../../../libs/prismadb";
 import bcrypt from "bcrypt";
-import { IncomingMessage } from "http";
-import { getServerSession } from "next-auth";
-
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -37,7 +34,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(newUser);
   } catch (err: any) {
-    console.log("REGISTER_ERR: " + err);
+    // console.log("REGISTER_ERR: " + err);
     return new NextResponse(err, { status: 500 });
   }
 }

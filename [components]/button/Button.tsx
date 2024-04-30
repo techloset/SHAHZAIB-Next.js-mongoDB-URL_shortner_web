@@ -1,8 +1,6 @@
 import React from 'react'
-interface ButtonProps {
-  name?: string;
-  onClick?: () => void;
-}
+import { ButtonProps } from '../../types/type';
+
 export default function Button({name,onClick } : ButtonProps) {
   return (
     <div className='flex justify-center'>

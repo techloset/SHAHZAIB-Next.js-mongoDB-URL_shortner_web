@@ -1,21 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-interface UserProfileData {
-    id: string | null;
-    email: string | null;
-    name: string | null;
-    hashedPassword: number | null;
-    confirmPassword: string | null;
-    createdAt: string | null;
-    updatedAt: string | null;
-}
-
-export interface UserProfileState {
-    userData: UserProfileData | null;
-    loading: boolean;
-    error: string | null;
-}
+import { UserProfileData , UserProfileState} from "../../../../types/type";
 
 const initialState: UserProfileState = {
     userData: null,
