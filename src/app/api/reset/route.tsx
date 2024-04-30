@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function PUT(req: Request): Promise<Response> {
   try {
-    const session = await getServerSession({ req});
+    const session = await getServerSession({ req });
 
     if (!session || !session.user?.email) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -52,24 +52,24 @@ export async function PUT(req: Request): Promise<Response> {
     //   },
     // });
     const user = await prismadb.user.findFirst({
-  where: {
-    email: userEmail,
-  },
-});
+      where: {
+        email: userEmail,
+      },
+    });
 
-if (!user) {
-  return new Response("User not found", { status: 404 });
-}
+    if (!user) {
+      return new Response("User not found", { status: 404 });
+    }
 
-const updatedUser = await prismadb.user.update({
-  where: {
-    id: user.id, 
-  },
-  data: {
-    hashedPassword: newHashedPassword,
-  },
-});
-
+    const updatedUser = await prismadb.user.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        hashedPassword: newHashedPassword,
+        confirmPassword: confirmPassword,
+      },
+    });
 
     return new Response(JSON.stringify(updatedUser), {
       status: 200,

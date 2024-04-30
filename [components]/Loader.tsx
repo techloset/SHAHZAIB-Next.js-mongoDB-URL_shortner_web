@@ -1,7 +1,9 @@
 import React from "react";
-
+import { BounceLoader } from "react-spinners";
 export default function () {
   return (
+    // <BounceLoader color="#4436d6" size={100} />
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
       <circle
         fill="none"

@@ -14,6 +14,7 @@ import {
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../libs/AuthOptions";
 import MainPage from "../../../[components]/main/MainPage";
+import Dropdown from "../../../[components]/dropdown/Dropdown";
 
 export default async function Add() {
   const session = await getServerSession(authOptions);
@@ -51,13 +52,10 @@ export default async function Add() {
               alt="chevron-down"
               className="w-[20px] h-[28px] mt-4 ml-4"
             />
+  
           </div>
           <div className="h-[60px] w-[60px] rounded-full bg-blue-700 ">
-            <Image
-              src={arro}
-              alt="bell"
-              className="w-[25px] h-[25px] ml-5 mt-4"
-            />
+            <Dropdown/>
           </div>
         </div>
         <div className="flex mt-5 justify-center  ">
