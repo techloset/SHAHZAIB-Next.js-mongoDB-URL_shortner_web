@@ -6,7 +6,7 @@ import prismadb from "../../../../libs/prismadb";
 
 export async function GET(req: IncomingMessage): Promise<NextResponse> {
   try {
-    const session = await getServerSession({ req });
+    const session = await getServerSession();
 
     if (!session) {
       return new NextResponse("Unauthorized", { status: 401 });
