@@ -2,11 +2,12 @@ import { NextResponse } from "next/server";
 import { IncomingMessage } from "http";
 import { getServerSession } from "next-auth";
 import prismadb from "../../../../libs/prismadb";
+import { SessionProps } from "../../../../types/type";
 
 
 export async function GET(req: IncomingMessage): Promise<NextResponse> {
   try {
-    const session = await getServerSession();
+    const session = (await getServerSession(req as any)) as SessionProps;
 
     if (!session) {
       return new NextResponse("Unauthorized", { status: 401 });

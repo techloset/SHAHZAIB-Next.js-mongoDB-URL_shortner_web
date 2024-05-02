@@ -2,10 +2,12 @@ import { getServerSession } from "next-auth";
 import prismadb from "../../../../libs/prismadb";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
+import { SessionProps } from "../../../../types/type";
+
 
 export async function PUT(req: Request): Promise<Response> {
   try {
-    const session = await getServerSession({ req });
+    const session = (await getServerSession(req as any)) as SessionProps;
 
     if (!session || !session.user?.email) {
       return new NextResponse("Unauthorized", { status: 401 });

@@ -50,3 +50,9 @@ export interface UserState {
     loading: boolean;
     error: string | null;
 }
+
+export interface SessionProps {
+  user: {
+    email: string;
+  };
+}
