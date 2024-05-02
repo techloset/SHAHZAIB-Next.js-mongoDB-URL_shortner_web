@@ -21,7 +21,6 @@ export default function useMainPage() {
   const router = useRouter();
   const [data, setData] = useState<UserData[]>([]);
 
-
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);
@@ -47,7 +46,6 @@ export default function useMainPage() {
       });
 
       if (response.status === 200) {
-        // console.log(response.data.message);
         dispatch(fetchUser());
 
         toast.success(response.data.message);
@@ -60,7 +58,7 @@ export default function useMainPage() {
     }
   };
 
-  const getUrlFromShortId = async (shortId: any, res: NextApiResponse) => {
+  const getUrlFromShortId = async (shortId: any) => {
     const filteredItem = data.find((item: any) => item.shortId === shortId);
 
     if (filteredItem) {
@@ -75,15 +73,12 @@ export default function useMainPage() {
           dispatch(fetchUser());
         } catch (error) {
           console.error("Error redirecting to long URL:", error);
-          res.status(500).json({ error: "Internal Server Error" });
         }
       } else {
         console.error("No longUrl found for the provided shortId");
-        res.status(404).json({ error: "Short URL not found" });
       }
     } else {
       console.error("No item found with the provided shortId");
-      res.status(404).json({ error: "Short URL not found" });
     }
   };
 
@@ -113,9 +108,8 @@ export default function useMainPage() {
     }
   };
 
-
   // console.log("Data", data);
-  return  {
+  return {
     data,
     handleDelete,
     getUrlFromShortId,
@@ -124,6 +118,5 @@ export default function useMainPage() {
     setLoading,
     userData,
     userProfileData,
-    
-  }
+  };
 }

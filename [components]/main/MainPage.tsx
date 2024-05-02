@@ -7,39 +7,34 @@ import Loader from "../Loader";
 import useMainPage from "./useMainPage";
 
 export default function MainPage() {
-  const {
-    data,
-    handleDelete,
-    getUrlFromShortId,
-    loading,
-    
-  } = useMainPage();
+  const { data, handleDelete, getUrlFromShortId, loading } = useMainPage();
   return (
     <div className="  bg-black w-[1421px] h-screen">
-        <>
-          {loading ? (
-            <Loader />
-          ) : (
-      <table className="text-white w-[1421px]">
-        <thead>
-          <tr>
-            <th className="text-center text-xl">Short Link</th>
-            <th className="text-center text-xl">Original Link</th>
-            <th className="text-center text-xl">QR Code</th>
-            <th className="text-center text-xl">Clicks</th>
-            <th className="text-center text-xl">Status</th>
-            <th className="text-center text-xl">Date</th>
-            <th className="text-center text-xl">Action</th>
-          </tr>
-        </thead>
-        {data?.map((item, i) => {
-          return (
+      <>
+        {loading ? (
+          <Loader />
+        ) : (
+          <table className="text-white w-[1421px]">
+            <thead>
+              <tr>
+                <th className="text-center text-xl">Short Link</th>
+                <th className="text-center text-xl">Original Link</th>
+                <th className="text-center text-xl">QR Code</th>
+                <th className="text-center text-xl">Clicks</th>
+                <th className="text-center text-xl">Status</th>
+                <th className="text-center text-xl">Date</th>
+                <th className="text-center text-xl">Action</th>
+              </tr>
+            </thead>
+            {data?.map((item, i) => {
+              return (
                 <tbody>
                   <tr key={i}>
                     <td className="text-center py-5">
                       <div className="flex justify-center items-center">
                         <div className="flex">
-                          <div className=""
+                          <div
+                            className=""
                             onClick={() => {
                               getUrlFromShortId(item?.shortId);
                             }}
@@ -97,11 +92,11 @@ export default function MainPage() {
                     </td>
                   </tr>
                 </tbody>
-          );
-        })}
-      </table>
-      )}
-    </>
+              );
+            })}
+          </table>
+        )}
+      </>
     </div>
   );
 }

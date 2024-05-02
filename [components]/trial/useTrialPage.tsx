@@ -40,7 +40,7 @@ export default function useTrialPage() {
 
   // console.log("Data", data);
 
-  const getUrlFromShortId = async (shortId: any, res: NextApiResponse) => {
+  const getUrlFromShortId = async (shortId: any) => {
     const filteredItem = data.find((item: any) => item.shortId === shortId);
 
     if (filteredItem) {
@@ -55,15 +55,12 @@ export default function useTrialPage() {
           dispatch(fetchUser());
         } catch (error) {
           console.error("Error redirecting to long URL:", error);
-          res.status(500).json({ error: "Internal Server Error" });
         }
       } else {
         console.error("No longUrl found for the provided shortId");
-        res.status(404).json({ error: "Short URL not found" });
       }
     } else {
       console.error("No item found with the provided shortId");
-      res.status(404).json({ error: "Short URL not found" });
     }
   };
 
